@@ -1,18 +1,34 @@
 ---
-/**
- * Text wordmarks on purpose. Shipping real company logos in a template is a
- * trademark problem for whoever downloads it, and fake logos look fake.
- * Replace the names, or swap in <img> once you have permission.
- */
+import { Icon } from 'astro-icon/components'
 import { companies } from '../data/landing'
+
+/**
+ * Colour lives on the mark, never on the wordmark — that is how real logo
+ * bars read, and it keeps the row from turning into a rainbow of text.
+ *
+ * Every hue is set at the same lightness and chroma, so six different colours
+ * still sit at one visual weight. Change `hue` in src/data/landing.ts; the
+ * lightness is handled here and stays consistent.
+ */
 ---
 <section class="border-b border-ink-100 py-10 dark:border-ink-800">
   <div class="container-page">
-    <p class="font-mono text-xs text-ink-400 dark:text-ink-500">Running in production at</p>
-    <ul class="mt-5 flex flex-wrap items-center gap-x-10 gap-y-4">
+    <p class="font-mono text-xs text-ink-500 dark:text-ink-400">Running in production at</p>
+    <ul class="mt-6 flex flex-wrap items-center gap-x-9 gap-y-5">
       {companies.map((c) => (
-        <li class="text-sm font-semibold tracking-tight text-ink-400 dark:text-ink-600">{c}</li>
+        <li
+          class="logo flex items-center gap-2"
+          style={`--mark: oklch(58% 0.16 ${c.hue}); --mark-dark: oklch(76% 0.14 ${c.hue});`}
+        >
+          <Icon name={c.icon} class="mark size-5 shrink-0" aria-hidden="true" />
+          <span class="text-sm font-semibold tracking-tight text-ink-700 dark:text-ink-300">{c.name}</span>
+        </li>
       ))}
     </ul>
   </div>
 </section>
+
+<style>
+  .logo :global(.mark) { color: var(--mark); }
+  :global(.dark) .logo :global(.mark) { color: var(--mark-dark); }
+</style>

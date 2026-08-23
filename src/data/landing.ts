@@ -12,9 +12,25 @@
  * a plain list of components on purpose.
  */
 
-/** Logo bar. Text wordmarks: shipping real logos in a template is a trademark
- *  problem for whoever downloads it, and invented logos look invented. */
-export const companies = ['Northgate', 'Basalt', 'Quorum Labs', 'Ferrite', 'Meridian', 'Hollowpoint']
+/**
+ * Logo bar.
+ *
+ * An abstract Lucide mark plus a wordmark, rather than real brand logos from
+ * something like simple-icons. Putting real brands here would claim customers
+ * you do not have, and hands a trademark problem to everyone who downloads
+ * the template. Swap `icon` for an <img> once you have permission from an
+ * actual customer.
+ *
+ * `icon` is any name from https://lucide.dev — all of them are available.
+ */
+export const companies = [
+  { name: 'Northgate', icon: 'lucide:hexagon', hue: 250 },
+  { name: 'Basalt', icon: 'lucide:layers', hue: 300 },
+  { name: 'Quorum Labs', icon: 'lucide:orbit', hue: 200 },
+  { name: 'Ferrite', icon: 'lucide:magnet', hue: 25 },
+  { name: 'Meridian', icon: 'lucide:globe', hue: 168 },
+  { name: 'Hollowpoint', icon: 'lucide:circle-dot', hue: 95 },
+]
 
 export const features = [
   {

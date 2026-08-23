@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import PermissionCode from './PermissionCode.astro'
+import { Icon } from 'astro-icon/components'
 
 /**
  * The permission matrix.
@@ -58,7 +59,7 @@ const cols = [
                 const value = t[c.key]
                 if (!value) {
                   return (
-                    <td class="px-5 py-4 text-ink-300 dark:text-ink-600">
+                    <td class="px-5 py-4 text-ink-500 dark:text-ink-400">
                       <span aria-hidden="true">—</span>
                       <span class="sr-only">no access</span>
                     </td>
@@ -68,11 +69,7 @@ const cols = [
                   return (
                     <td class="px-5 py-4">
                       <span class="inline-flex items-start gap-2 text-caution-600 dark:text-caution-400">
-                        <svg class="mt-px size-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                          <path d="M8 1.6 15 14H1L8 1.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
-                          <path d="M8 6.4v3.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
-                          <circle cx="8" cy="11.6" r=".85" fill="currentColor" />
-                        </svg>
+                        <Icon name="lucide:triangle-alert" class="mt-px size-4 shrink-0" />
                         <span><span class="sr-only">Waits for approval on: </span>{value}</span>
                       </span>
                     </td>
@@ -84,14 +81,12 @@ const cols = [
               <td class="px-5 py-4">
                 {t.audited ? (
                   <span class="inline-flex items-center gap-2 text-signal-600 dark:text-signal-400">
-                    <svg class="size-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3.5 8.5 6.5 11.5 12.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <Icon name="lucide:check" class="size-4 shrink-0" />
                     <span class="sr-only">audited</span>
                   </span>
                 ) : (
                   <>
-                    <span aria-hidden="true" class="text-ink-300 dark:text-ink-600">—</span>
+                    <span aria-hidden="true" class="text-ink-500 dark:text-ink-400">—</span>
                     <span class="sr-only">not audited</span>
                   </>
                 )}

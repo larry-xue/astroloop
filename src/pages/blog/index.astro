@@ -9,7 +9,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
 
 const withAuthor = await Promise.all(
-  posts.map(async (p) => ({ post: p, author: (await getEntry(p.data.author))?.data })),
+  posts.map(async (p) => ({
+    post: p,
+    author: p.data.author ? (await getEntry(p.data.author))?.data : undefined,
+  })),
 )
 ---
 <Layout title="Blog" description="Notes on building and running agents in production.">
@@ -24,7 +27,7 @@ const withAuthor = await Promise.all(
         {withAuthor.map(({ post: p, author }) => (
           <li>
             <a href={`/blog/${p.id}`} class="group grid gap-3 py-7 sm:grid-cols-[8rem_minmax(0,1fr)] sm:gap-8">
-              <time datetime={p.data.date.toISOString()} class="font-mono text-xs text-ink-400 sm:pt-1 dark:text-ink-500">
+              <time datetime={p.data.date.toISOString()} class="font-mono text-xs text-ink-500 sm:pt-1 dark:text-ink-400">
                 {fmt.format(p.data.date)}
               </time>
               <div>

@@ -4,6 +4,7 @@
  * page that shows seats tells an agent buyer you have not thought about it.
  * The interactive estimator lives in the Pro version.
  */
+import { Icon } from 'astro-icon/components'
 import { tiers } from '../data/landing'
 ---
 <section class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
@@ -21,7 +22,7 @@ import { tiers } from '../data/landing'
         <div class={`flex flex-col rounded-2xl border p-7 ${t.featured ? 'border-signal-500 bg-ink-50/60 dark:bg-ink-900' : 'border-ink-200 dark:border-ink-800'}`}>
           <div class="flex items-baseline justify-between gap-3">
             <h3 class="font-semibold text-ink-900 dark:text-white">{t.name}</h3>
-            {t.featured && <span class="rounded-full bg-signal-500/15 px-2.5 py-1 font-mono text-[10px] leading-none uppercase tracking-[0.1em] text-signal-700 dark:text-signal-400">Most teams</span>}
+            {t.featured && <span class="rounded-full border border-signal-500/45 px-2.5 py-1 font-mono text-[10px] leading-none uppercase tracking-[0.1em] text-signal-700 dark:text-signal-400">Most teams</span>}
           </div>
           <p class="mt-5 flex items-baseline gap-2">
             <span class="text-3xl font-semibold tracking-tight text-ink-900 dark:text-white">{t.price}</span>
@@ -31,7 +32,7 @@ import { tiers } from '../data/landing'
           <ul class="mt-6 mb-7 space-y-2.5 text-sm text-ink-600 dark:text-ink-400">
             {t.points.map((pt) => (
               <li class="flex gap-2.5">
-                <svg class="mt-1 size-3.5 shrink-0 text-signal-600 dark:text-signal-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <Icon name="lucide:check" class="mt-1 size-3.5 shrink-0 text-signal-600 dark:text-signal-400" />
                 {pt}
               </li>
             ))}

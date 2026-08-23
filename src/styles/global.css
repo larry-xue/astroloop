@@ -4,7 +4,11 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
 
-  /* Ink: near-black in light, near-white in dark. Set on :root below. */
+  /* Ink: near-black in light, near-white in dark.
+   *
+   * Contrast rule: on white, ink-400 measures 3.5:1 and fails WCAG AA for
+   * text. ink-400 and lighter are for borders, rules and decoration only —
+   * the lightest ink allowed on text is ink-500. */
   --color-ink-50: oklch(98% 0.002 260);
   --color-ink-100: oklch(95% 0.003 260);
   --color-ink-200: oklch(89% 0.004 260);
