@@ -1,0 +1,18 @@
+---
+/**
+ * Text wordmarks on purpose. Shipping real company logos in a template is a
+ * trademark problem for whoever downloads it, and fake logos look fake.
+ * Replace the names, or swap in <img> once you have permission.
+ */
+import { companies } from '../data/landing'
+---
+<section class="border-b border-ink-100 py-10 dark:border-ink-800">
+  <div class="container-page">
+    <p class="font-mono text-xs text-ink-400 dark:text-ink-500">Running in production at</p>
+    <ul class="mt-5 flex flex-wrap items-center gap-x-10 gap-y-4">
+      {companies.map((c) => (
+        <li class="text-sm font-semibold tracking-tight text-ink-400 dark:text-ink-600">{c}</li>
+      ))}
+    </ul>
+  </div>
+</section>

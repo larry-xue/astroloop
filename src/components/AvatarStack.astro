@@ -1,0 +1,27 @@
+---
+import Avatar from './Avatar.astro'
+
+interface Props {
+  people: { name: string; avatar?: string | null }[]
+  label?: string
+  max?: number
+}
+const { people, label, max = 5 } = Astro.props
+const shown = people.slice(0, max)
+const rest = Math.max(0, people.length - shown.length)
+---
+<div class="flex items-center gap-3">
+  <ul class="flex -space-x-2">
+    {shown.map((p) => (
+      <li class="rounded-full ring-2 ring-white dark:ring-ink-950">
+        <Avatar name={p.name} avatar={p.avatar} size="sm" />
+      </li>
+    ))}
+    {rest > 0 && (
+      <li class="rounded-full ring-2 ring-white dark:ring-ink-950">
+        <span class="inline-flex size-8 select-none items-center justify-center rounded-full bg-ink-100 text-[11px] font-medium text-ink-600 dark:bg-ink-800 dark:text-ink-300">+{rest}</span>
+      </li>
+    )}
+  </ul>
+  {label && <p class="text-sm text-ink-600 dark:text-ink-400">{label}</p>}
+</div>

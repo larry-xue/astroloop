@@ -1,5 +1,12 @@
 ---
+import { getCollection } from 'astro:content'
 import { site } from '../data/site'
+import AvatarStack from './AvatarStack.astro'
+
+const people = (await getCollection('testimonials'))
+  .map((t) => t.data)
+  .filter((t) => t.featured)
+  .sort((a, b) => a.order - b.order)
 ---
 <section class="border-b border-ink-100 py-20 sm:py-28 dark:border-ink-800">
   <div class="container-page" data-rise>
@@ -20,6 +27,10 @@ import { site } from '../data/site'
         See what it does on its own
       </a>
     </div>
+    <div class="mt-9">
+      <AvatarStack people={people} label="Trusted by the people who had to approve it" />
+    </div>
+
     <p class="mt-6 font-mono text-xs text-ink-500 dark:text-ink-400">
       No card. Every action logged. Revoke a tool and the next run respects it.
     </p>

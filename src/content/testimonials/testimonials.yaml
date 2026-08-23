@@ -1,0 +1,65 @@
+# Quotes shown on the homepage. Add, remove or reorder entries here — you
+# should never need to open the component.
+#
+# avatar: drop a file in public/people/ and point at it, e.g. /people/priya.jpg
+#         leave it null and the initials avatar is used instead.
+# featured: true also puts this person in the hero avatar stack.
+
+- id: priya
+  order: 1
+  name: Priya Raghunathan
+  role: Staff Security Engineer
+  company: Basalt
+  avatar: null
+  featured: true
+  quote: >-
+    I approved it for a two-week trial expecting to revoke it. What changed my
+    mind was not the output, it was that every refusal showed up in the log
+    with the reason attached.
+
+- id: tom
+  order: 2
+  name: Tom Íñigo
+  role: Engineering Manager
+  company: Northgate
+  avatar: null
+  featured: true
+  quote: >-
+    It closed forty-one issues in its first month and asked me eleven
+    questions. The eleven were the right eleven, which is the part I did not
+    expect.
+
+- id: wen
+  order: 3
+  name: Wen Xiaoqing
+  role: Platform Lead
+  company: Quorum Labs
+  avatar: null
+  featured: true
+  quote: >-
+    We had already written the policy doc for what an agent would be allowed to
+    do. Configuring it here took an afternoon because the fields were the same
+    fields.
+
+- id: dee
+  order: 4
+  name: Dee Okonkwo
+  role: Principal Engineer
+  company: Ferrite
+  avatar: null
+  featured: true
+  quote: >-
+    The thing I keep pointing colleagues at is the transcript. Not because it
+    is pretty, but because when it does something surprising I can find out why
+    in under a minute.
+
+- id: matteo
+  order: 5
+  name: Matteo Bianchi
+  role: Head of Infrastructure
+  company: Meridian
+  avatar: null
+  featured: true
+  quote: >-
+    We run it against a read replica and a scratch workspace. It has never once
+    tried to talk its way past that, because there is nothing there to talk to.

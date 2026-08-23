@@ -1,26 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Pricing from '../components/Pricing.astro'
+import FAQ from '../components/FAQ.astro'
 import CTA from '../components/CTA.astro'
 ---
 <Layout title="Pricing" description="Usage-based pricing for an AI agent product. You pay for runs that finish, not for seats.">
   <Pricing />
-  <section class="border-t border-ink-100 py-16 dark:border-ink-800">
-    <div class="container-page grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {[
-        { q: 'What counts as a run?', a: 'One goal, from the first plan to either a result or a rejected handoff. Retries inside a run are not billed separately.' },
-        { q: 'What happens when it stalls?', a: 'The run is cancelled after the step budget and you are not billed. You get the transcript either way.' },
-        { q: 'Can I cap spend?', a: 'Set a monthly ceiling per project. When it is reached the queue pauses rather than silently overspending.' },
-        { q: 'Do rejected handoffs bill?', a: 'No. If you decline the action, the run closes unbilled. Declining should never be the expensive choice.' },
-        { q: 'Is there a free tier forever?', a: 'Twenty runs a month, same permissions and same transcripts as every paid plan. Nothing is withheld to make it feel broken.' },
-        { q: 'Who can approve?', a: 'Anyone you invite. Approvers are not seats and are never billed.' },
-      ].map((f) => (
-        <div>
-          <h3 class="text-sm font-semibold text-ink-900 dark:text-white">{f.q}</h3>
-          <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-400">{f.a}</p>
-        </div>
-      ))}
-    </div>
-  </section>
+  <FAQ />
   <CTA />
 </Layout>

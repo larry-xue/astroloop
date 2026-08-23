@@ -2,6 +2,7 @@
 title: What a run actually costs
 description: We billed per seat for two months. Here is why we stopped, and what the numbers looked like on both sides of the change.
 date: 2026-08-14
+author: mara
 tags: ['pricing', 'operations']
 ---
 

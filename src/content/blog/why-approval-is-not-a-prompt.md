@@ -2,6 +2,7 @@
 title: Why approval cannot live in the prompt
 description: An instruction that says "always ask before merging" is a suggestion. Here is where we moved the check, and what it cost us to move it.
 date: 2026-08-20
+author: mara
 tags: ['permissions', 'architecture']
 ---
 

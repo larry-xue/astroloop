@@ -1,18 +1,5 @@
 ---
-const features = [
-  {
-    title: 'Scoped at the call site',
-    body: 'Permissions are enforced where the tool is invoked, not asked for politely in a system prompt. A revoked tool is gone on the next run, mid-task included.',
-  },
-  {
-    title: 'Every run leaves a trace',
-    body: 'Each step records the tool, the arguments, the result and the elapsed time. When something goes wrong you get a transcript, not a shrug.',
-  },
-  {
-    title: 'Priced by work, not by seat',
-    body: 'You pay for completed runs. A run that stalls, loops, or gets rejected at handoff does not bill.',
-  },
-]
+import { features } from '../data/landing'
 ---
 <section class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
   <div class="container-page" data-rise>

@@ -4,11 +4,7 @@
  * page that shows seats tells an agent buyer you have not thought about it.
  * The interactive estimator lives in the Pro version.
  */
-const tiers = [
-  { name: 'Free', price: '$0', unit: 'forever', line: '20 runs a month', points: ['All tools, same permissions', 'Full run transcripts', 'Community support'], cta: 'Start free', featured: false },
-  { name: 'Team', price: '$29', unit: 'per month', line: 'then $0.40 per run', points: ['Unlimited approvers', '90-day transcript retention', 'Slack and email handoff', 'Priority queue'], cta: 'Start free trial', featured: true },
-  { name: 'Enterprise', price: 'Talk to us', unit: '', line: 'volume pricing', points: ['Self-hosted runners', 'SSO and audit export', 'Custom tool allowlists', 'A person who answers'], cta: 'Contact sales', featured: false },
-]
+import { tiers } from '../data/landing'
 ---
 <section class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
   <div class="container-page" data-rise>
@@ -40,7 +36,7 @@ const tiers = [
               </li>
             ))}
           </ul>
-          <a href="/contact" class={`mt-auto block rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors ${t.featured ? 'border border-transparent bg-ink-900 text-white hover:bg-ink-800 dark:bg-white dark:text-ink-900 dark:hover:bg-ink-100' : 'border border-ink-200 text-ink-800 hover:bg-ink-50 dark:border-ink-700 dark:text-ink-200 dark:hover:bg-ink-900'}`}>{t.cta}</a>
+          <a href={t.href} class={`mt-auto block rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors ${t.featured ? 'border border-transparent bg-ink-900 text-white hover:bg-ink-800 dark:bg-white dark:text-ink-900 dark:hover:bg-ink-100' : 'border border-ink-200 text-ink-800 hover:bg-ink-50 dark:border-ink-700 dark:text-ink-200 dark:hover:bg-ink-900'}`}>{t.cta}</a>
         </div>
       ))}
     </div>

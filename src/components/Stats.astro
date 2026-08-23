@@ -1,0 +1,22 @@
+---
+/**
+ * Agent-shaped social proof. "10,000 happy customers" says nothing to someone
+ * deciding whether to let software touch their repository. Numbers about
+ * escalation and refusal do, because they are the numbers a sceptic asks for.
+ */
+import { stats } from '../data/landing'
+---
+<section class="border-t border-ink-100 py-20 sm:py-24 dark:border-ink-800">
+  <div class="container-page" data-rise>
+    <p class="eyebrow">In production</p>
+    <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      {stats.map((s) => (
+        <div>
+          <p class="text-4xl font-semibold tracking-tight text-ink-900 dark:text-white">{s.value}</p>
+          <p class="mt-2 text-sm font-medium text-ink-700 dark:text-ink-300">{s.label}</p>
+          <p class="mt-1 font-mono text-xs text-ink-500 dark:text-ink-400">{s.note}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

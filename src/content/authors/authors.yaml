@@ -1,0 +1,22 @@
+# Blog authors. Reference one from a post's front matter with `author: mara`.
+#
+# avatar: drop a file in public/people/ and point at it, e.g. /people/mara.jpg
+#         leave it null and the initials avatar is used instead.
+
+- id: mara
+  name: Mara Volkov
+  role: Co-founder
+  bio: Works on the permission layer, and on being talked out of adding features to it.
+  avatar: null
+
+- id: sam
+  name: Sam Oyelaran
+  role: Engineer
+  bio: Writes the runner. Keeps a list of everything the agent has done that surprised him.
+  avatar: null
+
+- id: junhee
+  name: Kang Junhee
+  role: Design
+  bio: Responsible for deleting the chat box, and for the argument that preceded it.
+  avatar: null

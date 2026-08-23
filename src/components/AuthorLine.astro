@@ -1,0 +1,29 @@
+---
+import { getEntry } from 'astro:content'
+import Avatar from './Avatar.astro'
+
+interface Props {
+  /** The reference from a post's front matter. */
+  author: { collection: 'authors'; id: string }
+  date: Date
+  showBio?: boolean
+}
+const { author, date, showBio = false } = Astro.props
+const entry = await getEntry(author)
+const a = entry?.data
+const fmt = new Intl.DateTimeFormat('en-US', { month: 'short', day: '2-digit', year: 'numeric' })
+---
+{a && (
+  <div class="flex items-center gap-3">
+    <Avatar name={a.name} avatar={a.avatar} />
+    <div class="min-w-0">
+      <p class="text-sm font-medium text-ink-900 dark:text-white">{a.name}</p>
+      <p class="mt-0.5 font-mono text-xs text-ink-500 dark:text-ink-400">
+        {a.role}
+        <span class="mx-1.5 text-ink-300 dark:text-ink-600">·</span>
+        <time datetime={date.toISOString()}>{fmt.format(date)}</time>
+      </p>
+      {showBio && a.bio && <p class="mt-2 text-sm text-ink-600 dark:text-ink-400">{a.bio}</p>}
+    </div>
+  </div>
+)}
