@@ -82,3 +82,28 @@ body {
     }
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * Cross-document view transitions.
+ *
+ * The CSS at-rule, not Astro's <ClientRouter />. The router ships a few KB of
+ * JavaScript and this template claims zero — a claim that is printed on the
+ * card in every directory listing, so it has to stay true. This is the same
+ * effect with no runtime, and browsers without support simply navigate.
+ * ------------------------------------------------------------------------ */
+
+@view-transition { navigation: auto; }
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root) { animation: lx-vt-out 0.16s ease both; }
+  ::view-transition-new(root) { animation: lx-vt-in 0.24s ease both; }
+
+  @keyframes lx-vt-out { to { opacity: 0; } }
+  @keyframes lx-vt-in { from { opacity: 0; transform: translateY(6px); } }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}

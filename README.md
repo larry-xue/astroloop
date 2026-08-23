@@ -35,7 +35,8 @@ rather than decorative.
 
 - **Astro 7** and **Tailwind CSS 4**
 - **Zero client-side JavaScript** — no animation library, no smooth-scroll
-  hijacking. Motion is CSS scroll-driven animation and degrades to static.
+  hijacking, and no view-transition router. Motion is CSS scroll-driven
+  animation and the native `@view-transition` rule; both degrade to static.
 - Self-hosted variable fonts, preloaded. No third-party font origin.
 - Light and dark, chosen before first paint so there is no flash
 - Content collections for the blog, RSS, sitemap, canonical URLs, OG tags
@@ -74,7 +75,7 @@ of the same sections:
 | Agent loop diagram | ✅ | ✅ |
 | Permission matrix + tool definition | ✅ | ✅ |
 | Astro 7, Tailwind 4, zero client JS | ✅ | ✅ |
-| View Transitions | ✅ | ✅ |
+| View Transitions (CSS only, no JS) | ✅ | ✅ |
 | Blog, RSS, sitemap, OG image | ✅ | ✅ |
 | **Tool-call timeline** — an interactive transcript of one run | — | ✅ |
 | **Usage estimator** — runs and tokens to a monthly figure | — | ✅ |
