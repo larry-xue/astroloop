@@ -1,0 +1,17 @@
+---
+import { site } from '../data/site'
+---
+<footer class="border-t border-ink-100 py-14 dark:border-ink-800">
+  <div class="container-page flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p class="font-semibold text-ink-900 dark:text-white">{site.name}</p>
+      <p class="mt-1 max-w-sm text-sm text-ink-500 dark:text-ink-400">{site.tagline}</p>
+    </div>
+    <nav class="flex flex-wrap gap-x-7 gap-y-3 text-sm" aria-label="Footer">
+      {site.nav.map((n) => (
+        <a href={n.href} class="text-ink-600 hover:text-ink-900 dark:text-ink-400 dark:hover:text-white">{n.label}</a>
+      ))}
+      <a href="/contact" class="text-ink-600 hover:text-ink-900 dark:text-ink-400 dark:hover:text-white">Contact</a>
+    </nav>
+  </div>
+</footer>

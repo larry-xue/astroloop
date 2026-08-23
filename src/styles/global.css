@@ -1,0 +1,80 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
+
+  /* Ink: near-black in light, near-white in dark. Set on :root below. */
+  --color-ink-50: oklch(98% 0.002 260);
+  --color-ink-100: oklch(95% 0.003 260);
+  --color-ink-200: oklch(89% 0.004 260);
+  --color-ink-300: oklch(78% 0.006 260);
+  --color-ink-400: oklch(63% 0.008 260);
+  --color-ink-500: oklch(52% 0.010 260);
+  --color-ink-600: oklch(42% 0.012 260);
+  --color-ink-700: oklch(33% 0.014 260);
+  --color-ink-800: oklch(24% 0.014 260);
+  --color-ink-900: oklch(17% 0.013 260);
+  --color-ink-950: oklch(12% 0.012 260);
+
+  /* One accent, used sparingly: the loop, the CTA, the focus ring. */
+  --color-signal-400: oklch(78% 0.15 168);
+  --color-signal-500: oklch(70% 0.16 168);
+  --color-signal-600: oklch(60% 0.15 168);
+  /* For small text on white: signal-600 only reaches 3.5:1, which fails WCAG AA
+     at 12px. This one clears 4.5:1. */
+  --color-signal-700: oklch(49% 0.12 168);
+
+  /* Approval-required warnings in the permission matrix. */
+  --color-caution-400: oklch(82% 0.14 78);
+  --color-caution-600: oklch(65% 0.14 62);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root { color-scheme: light dark; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body {
+  @apply bg-white text-ink-800 antialiased;
+}
+.dark body {
+  @apply bg-ink-950 text-ink-200;
+}
+
+::selection { background: var(--color-signal-400); color: var(--color-ink-950); }
+
+.container-page { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+.eyebrow { @apply font-mono text-xs uppercase tracking-[0.14em] text-ink-500 dark:text-ink-400; }
+
+/* ---------------------------------------------------------------------------
+ * Motion.
+ *
+ * No animation library. These are CSS scroll-driven animations: zero bytes of
+ * JavaScript, and where `animation-timeline` is unsupported the element simply
+ * renders in its final state. Nothing here is load-bearing for comprehension.
+ *
+ * Deliberately not using a smooth-scroll library. Hijacking the scroll breaks
+ * scroll anchoring, in-page find, and assistive tech, and this template is for
+ * an audience that notices.
+ * ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    @keyframes lx-rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    [data-rise] {
+      animation: lx-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 5% cover 26%;
+    }
+  }
+}

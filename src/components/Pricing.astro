@@ -1,0 +1,48 @@
+---
+/**
+ * Usage-based, not per seat. Agent products bill for work done, and a pricing
+ * page that shows seats tells an agent buyer you have not thought about it.
+ * The interactive estimator lives in the Pro version.
+ */
+const tiers = [
+  { name: 'Free', price: '$0', unit: 'forever', line: '20 runs a month', points: ['All tools, same permissions', 'Full run transcripts', 'Community support'], cta: 'Start free', featured: false },
+  { name: 'Team', price: '$29', unit: 'per month', line: 'then $0.40 per run', points: ['Unlimited approvers', '90-day transcript retention', 'Slack and email handoff', 'Priority queue'], cta: 'Start free trial', featured: true },
+  { name: 'Enterprise', price: 'Talk to us', unit: '', line: 'volume pricing', points: ['Self-hosted runners', 'SSO and audit export', 'Custom tool allowlists', 'A person who answers'], cta: 'Contact sales', featured: false },
+]
+---
+<section class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
+  <div class="container-page" data-rise>
+    <p class="eyebrow">Pricing</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl dark:text-white">
+      You pay for work finished, not for people logged in.
+    </h2>
+    <p class="mt-4 max-w-xl text-ink-600 dark:text-ink-400">
+      A run that stalls, loops, or gets rejected at handoff does not bill.
+    </p>
+
+    <div class="mt-12 grid gap-6 lg:grid-cols-3">
+      {tiers.map((t) => (
+        <div class={`flex flex-col rounded-2xl border p-7 ${t.featured ? 'border-signal-500 bg-ink-50/60 dark:bg-ink-900' : 'border-ink-200 dark:border-ink-800'}`}>
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="font-semibold text-ink-900 dark:text-white">{t.name}</h3>
+            {t.featured && <span class="rounded-full bg-signal-500/15 px-2.5 py-1 font-mono text-[10px] leading-none uppercase tracking-[0.1em] text-signal-700 dark:text-signal-400">Most teams</span>}
+          </div>
+          <p class="mt-5 flex items-baseline gap-2">
+            <span class="text-3xl font-semibold tracking-tight text-ink-900 dark:text-white">{t.price}</span>
+            {t.unit && <span class="text-sm text-ink-500 dark:text-ink-400">{t.unit}</span>}
+          </p>
+          <p class="mt-1 font-mono text-xs text-ink-500 dark:text-ink-400">{t.line}</p>
+          <ul class="mt-6 mb-7 space-y-2.5 text-sm text-ink-600 dark:text-ink-400">
+            {t.points.map((pt) => (
+              <li class="flex gap-2.5">
+                <svg class="mt-1 size-3.5 shrink-0 text-signal-600 dark:text-signal-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5 6.5 11.5 12.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                {pt}
+              </li>
+            ))}
+          </ul>
+          <a href="/contact" class={`mt-auto block rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors ${t.featured ? 'border border-transparent bg-ink-900 text-white hover:bg-ink-800 dark:bg-white dark:text-ink-900 dark:hover:bg-ink-100' : 'border border-ink-200 text-ink-800 hover:bg-ink-50 dark:border-ink-700 dark:text-ink-200 dark:hover:bg-ink-900'}`}>{t.cta}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

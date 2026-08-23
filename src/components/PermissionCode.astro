@@ -1,0 +1,79 @@
+---
+import { Code } from 'astro:components'
+
+/**
+ * Sits directly under the permission matrix.
+ *
+ * The matrix claims what the agent can and cannot do; this shows how that
+ * claim is written down. A technical buyer does not believe the table until
+ * they can see the shape of the thing that produces it.
+ *
+ * Keep this honest. Decorative code that could not possibly run is the fastest
+ * way to lose the exact audience this template is for.
+ */
+const snippet = `import { defineTool } from '@astroloop/sdk'
+
+export const github = defineTool({
+  name: 'github',
+
+  reads:  ['repos', 'issues', 'pulls'],
+  writes: ['comments', 'branches'],
+
+  // Anything listed here stops the run and waits for a person.
+  // Checked at the call site, so the agent cannot talk its way
+  // past it the way it can with an instruction in the prompt.
+  approval: ['merge', 'force-push'],
+
+  audit: true,
+})`
+---
+
+<div class="mt-16 grid gap-10 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-14">
+  <div>
+    <h3 class="text-xl font-semibold tracking-tight text-ink-900 dark:text-white">
+      And this is the whole of it.
+    </h3>
+    <p class="mt-3 text-sm leading-relaxed text-ink-600 dark:text-ink-400">
+      One definition per tool. The four fields in the table above are the four
+      fields here — there is no second place where permissions are configured,
+      and no prompt that can widen them at runtime.
+    </p>
+    <p class="mt-3 text-sm leading-relaxed text-ink-600 dark:text-ink-400">
+      Delete a line and the capability is gone on the next run, mid-task
+      included.
+    </p>
+  </div>
+
+  <div class="code-frame overflow-hidden rounded-xl border border-ink-200 dark:border-ink-800">
+    <div class="flex items-center gap-2 border-b border-ink-200 bg-ink-50 px-4 py-2.5 dark:border-ink-800 dark:bg-ink-900">
+      <span class="size-2.5 rounded-full bg-ink-200 dark:bg-ink-700"></span>
+      <span class="size-2.5 rounded-full bg-ink-200 dark:bg-ink-700"></span>
+      <span class="size-2.5 rounded-full bg-ink-200 dark:bg-ink-700"></span>
+      <span class="ml-2 font-mono text-xs text-ink-500 dark:text-ink-400">tools/github.ts</span>
+    </div>
+    <Code code={snippet} lang="ts" themes={{ light: 'github-light', dark: 'github-dark-default' }} />
+  </div>
+</div>
+
+<style>
+  /* Shiki emits both themes; swap them with the site's own dark class
+     rather than a media query, so the manual toggle stays in charge. */
+  .code-frame :global(pre) {
+    margin: 0;
+    padding: 1.25rem 1.25rem 1.4rem;
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-x: auto;
+    tab-size: 2;
+  }
+  .code-frame :global(code) { font-family: var(--font-mono); }
+
+  :global(.dark) .code-frame :global(pre),
+  :global(.dark) .code-frame :global(pre span) {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+</style>

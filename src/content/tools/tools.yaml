@@ -1,0 +1,53 @@
+# The permission matrix on the homepage reads from this file.
+#
+# reads / writes / approval: write null when the agent genuinely cannot do it.
+# Empty cells are the point — they are what makes the table believable.
+# approval: name the specific actions that stop and wait for a human.
+
+- id: github
+  order: 1
+  tool: GitHub
+  reads: repos, issues, pull requests
+  writes: comments, branches
+  approval: merge, force-push
+  audited: true
+
+- id: slack
+  order: 2
+  tool: Slack
+  reads: channels it is invited to
+  writes: messages in those channels
+  approval: null
+  audited: true
+
+- id: postgres
+  order: 3
+  tool: Postgres
+  reads: analytics.* (read replica)
+  writes: null
+  approval: null
+  audited: true
+
+- id: email
+  order: 4
+  tool: Email
+  reads: null
+  writes: send as agent@yourdomain
+  approval: any external recipient
+  audited: true
+
+- id: filesystem
+  order: 5
+  tool: Filesystem
+  reads: /workspace
+  writes: /workspace
+  approval: delete, chmod
+  audited: true
+
+- id: shell
+  order: 6
+  tool: Shell
+  reads: null
+  writes: null
+  approval: every command
+  audited: true

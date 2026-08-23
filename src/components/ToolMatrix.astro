@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content'
+import PermissionCode from './PermissionCode.astro'
+
+/**
+ * The permission matrix.
+ *
+ * No other Astro template ships one, and it is the part of this template that
+ * cannot be copied by looking at it. Three things must survive any redesign:
+ *
+ *  1. `writes` and `approval` stay separate columns. Buyers are not afraid the
+ *     agent can write. They are afraid it can write without asking.
+ *  2. Empty cells stay empty. A column of green ticks reads as marketing; the
+ *     blanks are what make the table believable.
+ *  3. "needs approval" and "audited" are different states, not one.
+ *
+ * Content comes from src/content/tools/tools.yaml.
+ */
+const tools = (await getCollection('tools'))
+  .map((t) => t.data)
+  .sort((a, b) => a.order - b.order)
+
+const cols = [
+  { key: 'reads', head: 'Reads' },
+  { key: 'writes', head: 'Writes' },
+  { key: 'approval', head: 'Needs approval' },
+] as const
+---
+
+<section id="permissions" class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
+  <div class="container-page">
+    <p class="eyebrow">Permissions</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl dark:text-white">
+      Everything it can reach, and everything it has to ask about first.
+    </h2>
+    <p class="mt-4 max-w-xl text-ink-600 dark:text-ink-400">
+      Scoped per tool, enforced at the call site rather than in the prompt.
+      The blanks below are real: where there is no cell, there is no access.
+    </p>
+
+    <div class="mt-10 overflow-x-auto rounded-xl border border-ink-200 dark:border-ink-800">
+      <table class="w-full min-w-[720px] border-collapse text-left text-sm">
+        <thead>
+          <tr class="border-b border-ink-200 bg-ink-50 dark:border-ink-800 dark:bg-ink-900">
+            <th scope="col" class="px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ink-500 dark:text-ink-400">Tool</th>
+            {cols.map((c) => (
+              <th scope="col" class="px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ink-500 dark:text-ink-400">{c.head}</th>
+            ))}
+            <th scope="col" class="px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-ink-500 dark:text-ink-400">Audited</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tools.map((t) => (
+            <tr class="border-b border-ink-100 last:border-0 dark:border-ink-800/70">
+              <th scope="row" class="whitespace-nowrap px-5 py-4 font-medium text-ink-900 dark:text-white">{t.tool}</th>
+
+              {cols.map((c) => {
+                const value = t[c.key]
+                if (!value) {
+                  return (
+                    <td class="px-5 py-4 text-ink-300 dark:text-ink-600">
+                      <span aria-hidden="true">—</span>
+                      <span class="sr-only">no access</span>
+                    </td>
+                  )
+                }
+                if (c.key === 'approval') {
+                  return (
+                    <td class="px-5 py-4">
+                      <span class="inline-flex items-start gap-2 text-caution-600 dark:text-caution-400">
+                        <svg class="mt-px size-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <path d="M8 1.6 15 14H1L8 1.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" />
+                          <path d="M8 6.4v3.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+                          <circle cx="8" cy="11.6" r=".85" fill="currentColor" />
+                        </svg>
+                        <span><span class="sr-only">Waits for approval on: </span>{value}</span>
+                      </span>
+                    </td>
+                  )
+                }
+                return <td class="px-5 py-4 font-mono text-[13px] text-ink-700 dark:text-ink-300">{value}</td>
+              })}
+
+              <td class="px-5 py-4">
+                {t.audited ? (
+                  <span class="inline-flex items-center gap-2 text-signal-600 dark:text-signal-400">
+                    <svg class="size-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M3.5 8.5 6.5 11.5 12.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="sr-only">audited</span>
+                  </span>
+                ) : (
+                  <>
+                    <span aria-hidden="true" class="text-ink-300 dark:text-ink-600">—</span>
+                    <span class="sr-only">not audited</span>
+                  </>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="mt-5 max-w-2xl text-sm text-ink-500 dark:text-ink-400">
+      Rows come from <code class="font-mono text-[13px] text-ink-700 dark:text-ink-300">src/content/tools/tools.yaml</code>.
+      Leave a field empty and the cell stays empty — that is the honest version, and it is the one that gets believed.
+    </p>
+
+    <PermissionCode />
+  </div>
+</section>

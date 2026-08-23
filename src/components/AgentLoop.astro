@@ -1,0 +1,146 @@
+---
+/**
+ * The agent loop.
+ *
+ * Deliberately not a three-step "sign up, use, grow" diagram. Two elements do
+ * the persuading and must survive any redesign: the arrow that goes *back*
+ * from OBSERVE to PLAN, and the gate that stops before RESULT and waits for a
+ * person. Straightening this into a one-way flow throws away the argument.
+ *
+ * Pure SVG and CSS. No dependencies, no runtime.
+ */
+const steps = [
+  { x: 20,  label: 'GOAL',    note: 'an outcome' },
+  { x: 182, label: 'PLAN',    note: 'into steps' },
+  { x: 344, label: 'ACT',     note: 'picks a tool' },
+  { x: 506, label: 'OBSERVE', note: 'reads results' },
+]
+const W = 128
+const H = 52
+const Y = 44
+---
+
+<section id="how-it-works" class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
+  <div class="container-page">
+    <p class="eyebrow">How it works</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-ink-900 sm:text-4xl dark:text-white">
+      It runs a loop, and it stops before the parts you care about.
+    </h2>
+    <p class="mt-4 max-w-xl text-ink-600 dark:text-ink-400">
+      Every run is the same shape. The interesting part is not that it is
+      autonomous — it is where the autonomy ends.
+    </p>
+
+    <div class="mt-12 overflow-x-auto">
+      <svg
+        class="agent-loop w-full min-w-[720px]"
+        viewBox="0 0 980 268"
+        role="img"
+        aria-label="Agent loop: goal, plan, act with a tool call, observe, then either loop back to plan or hand off to a person before producing a result."
+      >
+        <defs>
+          <marker id="al-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" class="al-arrowhead" />
+          </marker>
+          <marker id="al-arrow-loop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" class="al-arrowhead-loop" />
+          </marker>
+        </defs>
+
+        {steps.map((s) => (
+          <g>
+            <rect x={s.x} y={Y} width={W} height={H} rx="8" class="al-node" />
+            <text x={s.x + W / 2} y={Y + 26} class="al-label">{s.label}</text>
+            <text x={s.x + W / 2} y={Y + 42} class="al-note">{s.note}</text>
+          </g>
+        ))}
+
+        {/* the human gate — dashed, and the only thing in the caution colour */}
+        <rect x="668" y={Y} width={W} height={H} rx="8" class="al-node al-gate" />
+        <text x={668 + W / 2} y={Y + 26} class="al-label al-label-gate">HANDOFF</text>
+        <text x={668 + W / 2} y={Y + 42} class="al-note al-note-gate">waits for you</text>
+
+        <rect x="830" y={Y} width={W} height={H} rx="8" class="al-node al-result" />
+        <text x={830 + W / 2} y={Y + 34} class="al-label">RESULT</text>
+
+        {/* forward arrows */}
+        <line x1="148" y1={Y + H / 2} x2="176" y2={Y + H / 2} class="al-edge" marker-end="url(#al-arrow)" />
+        <line x1="310" y1={Y + H / 2} x2="338" y2={Y + H / 2} class="al-edge" marker-end="url(#al-arrow)" />
+        <line x1="472" y1={Y + H / 2} x2="500" y2={Y + H / 2} class="al-edge" marker-end="url(#al-arrow)" />
+        <line x1="634" y1={Y + H / 2} x2="662" y2={Y + H / 2} class="al-edge" marker-end="url(#al-arrow)" />
+        <line x1="796" y1={Y + H / 2} x2="824" y2={Y + H / 2} class="al-edge" marker-end="url(#al-arrow)" />
+
+        {/* the tool call hanging off ACT */}
+        <rect x="344" y="156" width={W} height="44" rx="8" class="al-node al-tool" />
+        <text x={344 + W / 2} y="183" class="al-label al-label-tool">TOOL CALL</text>
+        <line x1="392" y1={Y + H} x2="392" y2="150" class="al-edge" marker-end="url(#al-arrow)" />
+        <line x1="424" y1="156" x2="424" y2={Y + H + 6} class="al-edge" marker-end="url(#al-arrow)" />
+
+        {/* the loop: observe goes back to plan */}
+        <path d="M 570 96 L 570 224 L 246 224 L 246 102" class="al-edge al-loop" marker-end="url(#al-arrow-loop)" pathLength="100" />
+        <text x="408" y="246" class="al-loop-label">not done yet</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .agent-loop { font-family: var(--font-mono); }
+
+  .al-node { fill: #fff; stroke: var(--color-ink-200); stroke-width: 1.5; }
+  :global(.dark) .al-node { fill: var(--color-ink-900); stroke: var(--color-ink-700); }
+
+  .al-node.al-result { stroke: var(--color-signal-500); }
+  :global(.dark) .al-node.al-result { stroke: var(--color-signal-500); }
+  .al-tool { stroke-dasharray: 3 3; }
+
+  .al-node.al-gate { stroke: var(--color-caution-600); stroke-dasharray: 5 4; stroke-width: 2; }
+  :global(.dark) .al-node.al-gate { stroke: var(--color-caution-400); }
+
+  .al-label {
+    fill: var(--color-ink-900); font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-anchor: middle;
+  }
+  :global(.dark) .al-label { fill: #fff; }
+  .al-label-gate { fill: var(--color-caution-600); }
+  :global(.dark) .al-label-gate { fill: var(--color-caution-400); }
+  .al-label-tool { fill: var(--color-ink-500); }
+  :global(.dark) .al-label-tool { fill: var(--color-ink-400); }
+
+  .al-note { fill: var(--color-ink-500); font-size: 10px; text-anchor: middle; letter-spacing: 0.02em; }
+  :global(.dark) .al-note { fill: var(--color-ink-400); }
+  .al-note-gate { fill: var(--color-caution-600); }
+  :global(.dark) .al-note-gate { fill: var(--color-caution-400); }
+
+  .al-edge { stroke: var(--color-ink-300); stroke-width: 1.5; fill: none; }
+  :global(.dark) .al-edge { stroke: var(--color-ink-600); }
+  .al-arrowhead { fill: var(--color-ink-300); }
+  :global(.dark) .al-arrowhead { fill: var(--color-ink-600); }
+
+  .al-edge.al-loop { stroke: var(--color-signal-500); stroke-dasharray: 6 4; }
+
+  /* The loop draws itself as the diagram scrolls in. This one is not
+     decoration — watching the arrow travel back to PLAN is the argument the
+     section is making. Falls back to a fully drawn line. */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      @keyframes al-draw {
+        from { stroke-dashoffset: 100; }
+        to   { stroke-dashoffset: 0; }
+      }
+      .al-edge.al-loop {
+        stroke-dasharray: 100;
+        animation: al-draw linear both;
+        animation-timeline: view();
+        animation-range: entry 20% cover 45%;
+      }
+    }
+  }
+  :global(.dark) .al-edge.al-loop { stroke: var(--color-signal-500); }
+  .al-arrowhead-loop { fill: var(--color-signal-500); }
+  :global(.dark) .al-arrowhead-loop { fill: var(--color-signal-500); }
+  .al-loop-label {
+    fill: var(--color-signal-600); font-size: 11px; text-anchor: middle; letter-spacing: 0.06em;
+  }
+  :global(.dark) .al-loop-label { fill: var(--color-signal-400); }
+</style>

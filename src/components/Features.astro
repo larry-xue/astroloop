@@ -1,0 +1,29 @@
+---
+const features = [
+  {
+    title: 'Scoped at the call site',
+    body: 'Permissions are enforced where the tool is invoked, not asked for politely in a system prompt. A revoked tool is gone on the next run, mid-task included.',
+  },
+  {
+    title: 'Every run leaves a trace',
+    body: 'Each step records the tool, the arguments, the result and the elapsed time. When something goes wrong you get a transcript, not a shrug.',
+  },
+  {
+    title: 'Priced by work, not by seat',
+    body: 'You pay for completed runs. A run that stalls, loops, or gets rejected at handoff does not bill.',
+  },
+]
+---
+<section class="border-t border-ink-100 py-20 sm:py-28 dark:border-ink-800">
+  <div class="container-page" data-rise>
+    <div class="grid gap-10 sm:grid-cols-3 sm:gap-8">
+      {features.map((f, i) => (
+        <div>
+          <p class="font-mono text-xs text-signal-700 dark:text-signal-400">{String(i + 1).padStart(2, '0')}</p>
+          <h3 class="mt-3 text-lg font-semibold text-ink-900 dark:text-white">{f.title}</h3>
+          <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-400">{f.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
