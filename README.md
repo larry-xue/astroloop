@@ -61,6 +61,30 @@ Requires Node 22.12 or later.
    colour, used in three places: the loop, the result, the ticks.
 4. `src/content/blog/` — markdown posts
 
+## 📦 Free and Pro
+
+Everything above is in this repository, MIT, and stays that way. Nothing here
+moves behind a paywall later.
+
+Astroloop Pro adds the parts that need state or a build step rather than more
+of the same sections:
+
+| | Free (this repo) | Pro |
+| :--- | :--- | :--- |
+| Agent loop diagram | ✅ | ✅ |
+| Permission matrix + tool definition | ✅ | ✅ |
+| Astro 7, Tailwind 4, zero client JS | ✅ | ✅ |
+| View Transitions | ✅ | ✅ |
+| Blog, RSS, sitemap, OG image | ✅ | ✅ |
+| **Tool-call timeline** — an interactive transcript of one run | — | ✅ |
+| **Usage estimator** — runs and tokens to a monthly figure | — | ✅ |
+| **Evals table** with a methodology page | — | ✅ |
+| **Model and provider transparency** table | — | ✅ |
+| **Logs, audit and human-in-the-loop** section | — | ✅ |
+| **Playground embed** slot | — | ✅ |
+| Changelog, docs, evals and integrations pages | — | ✅ |
+| i18n, Keystatic CMS, Pagefind search | — | ✅ |
+
 ## 💼 Commercial use
 
 MIT. Use it for client work, invoice for it, ship it. No strings, no gated
