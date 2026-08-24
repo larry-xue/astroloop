@@ -8,6 +8,8 @@ An Astro landing page template for **AI agent products** — built around the qu
 
 ![The Astroloop home page](./.github/assets/hero.png)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lx-themes/astroloop) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lx-themes/astroloop) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lx-themes/astroloop)
+
 ## Features
 
 - **The agent loop** — goal, plan, act, tool call, observe, and the gate that waits for a person. Pure SVG.
@@ -29,13 +31,17 @@ An Astro landing page template for **AI agent products** — built around the qu
 3. `src/styles/global.css` — colours live in the `@theme` block
 4. `src/content/blog/` — markdown posts
 
-## Commands
+## Docs
 
-```bash
-npm install     # install
-npm run dev     # localhost:4321
-npm run build   # ./dist/
-```
+Full documentation is in [`docs/`](./docs/).
+
+| | |
+|---|---|
+| [Getting started](./docs/getting-started.md) | Install, run, and the files you will actually edit |
+| [Deploying](./docs/deploying.md) | Cloudflare, Netlify, Vercel, and anywhere else |
+| [Content](./docs/content.md) | Blog posts, authors, the permission matrix |
+| [Customising](./docs/customising.md) | Colours, type, motion, and what not to break |
+| [Troubleshooting](./docs/troubleshooting.md) | Every error this template can produce |
 
 ## Astroloop Pro
 

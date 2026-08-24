@@ -8,6 +8,8 @@ Ein Astro-Landingpage-Template für **KI-Agentenprodukte** — gebaut um die Fra
 
 ![Die Astroloop-Startseite](./.github/assets/hero.png)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lx-themes/astroloop) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lx-themes/astroloop) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lx-themes/astroloop)
+
 ## Funktionen
 
 - **Die Agentenschleife** — Ziel, Plan, Aktion, Werkzeugaufruf, Beobachtung, und das Tor, das auf einen Menschen wartet. Reines SVG.
@@ -29,13 +31,17 @@ Ein Astro-Landingpage-Template für **KI-Agentenprodukte** — gebaut um die Fra
 3. `src/styles/global.css` — Farben stehen im `@theme`-Block
 4. `src/content/blog/` — Markdown-Beiträge
 
-## Befehle
+## Dokumentation
 
-```bash
-npm install     # install
-npm run dev     # localhost:4321
-npm run build   # ./dist/
-```
+Die vollständige Dokumentation liegt in [`docs/`](./docs/).
+
+| | |
+|---|---|
+| [Erste Schritte](./docs/getting-started.md) | Installieren, starten und die Dateien, die du wirklich änderst |
+| [Deployment](./docs/deploying.md) | Cloudflare, Netlify, Vercel und überall sonst |
+| [Inhalte](./docs/content.md) | Beiträge, Autoren, die Berechtigungsmatrix |
+| [Anpassen](./docs/customising.md) | Farben, Typografie, Motion – und was nicht kaputtgehen darf |
+| [Fehlerbehebung](./docs/troubleshooting.md) | Jeder Fehler, den dieses Template erzeugen kann |
 
 ## Astroloop Pro
 

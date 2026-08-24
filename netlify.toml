@@ -1,0 +1,9 @@
+# Pins the build for the "Deploy to Netlify" button. Netlify detects Astro on
+# its own, but the detection reads package.json and this file does not — so it
+# keeps working if you rename a script.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

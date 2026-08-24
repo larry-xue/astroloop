@@ -8,6 +8,8 @@
 
 ![Astroloop 홈페이지](./.github/assets/hero.png)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lx-themes/astroloop) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lx-themes/astroloop) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lx-themes/astroloop)
+
 ## 기능
 
 - **에이전트 루프 다이어그램** — 목표·계획·실행·도구 호출·관찰, 그리고 사람을 기다리는 게이트. 순수 SVG.
@@ -29,13 +31,17 @@
 3. `src/styles/global.css` — 색상은 `@theme` 블록에
 4. `src/content/blog/` — 마크다운 글
 
-## 명령
+## 문서
 
-```bash
-npm install     # install
-npm run dev     # localhost:4321
-npm run build   # ./dist/
-```
+전체 문서는 [`docs/`](./docs/) 에 있습니다.
+
+| | |
+|---|---|
+| [시작하기](./docs/getting-started.md) | 설치, 실행, 그리고 실제로 편집하게 될 파일들 |
+| [배포](./docs/deploying.md) | Cloudflare, Netlify, Vercel, 그 외 |
+| [콘텐츠](./docs/content.md) | 글, 저자, 권한 매트릭스 |
+| [커스터마이징](./docs/customising.md) | 색·타이포·모션, 그리고 건드리면 안 되는 것 |
+| [문제 해결](./docs/troubleshooting.md) | 이 템플릿이 낼 수 있는 모든 오류와 해법 |
 
 ## Astroloop Pro
 

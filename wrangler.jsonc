@@ -1,0 +1,14 @@
+{
+  // Lets the "Deploy to Cloudflare" button work. Cloudflare's deploy buttons
+  // only support Workers, not Pages — but a Worker can serve a static build
+  // directly, and for a purely static site the Worker script itself is
+  // optional. This file is all that is needed.
+  //
+  // Delete it if you deploy somewhere else. Nothing in the template reads it.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "astroloop",
+  "compatibility_date": "2026-08-24",
+  "assets": {
+    "directory": "./dist"
+  }
+}

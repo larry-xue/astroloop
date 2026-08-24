@@ -8,6 +8,8 @@ Un template de landing Astro pour les **produits à base d'agents IA**, construi
 
 ![La page d'accueil d'Astroloop](./.github/assets/hero.png)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lx-themes/astroloop) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lx-themes/astroloop) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lx-themes/astroloop)
+
 ## Fonctionnalités
 
 - **La boucle de l'agent** — objectif, plan, action, appel d'outil, observation, et la porte qui attend une personne. SVG pur.
@@ -29,13 +31,17 @@ Un template de landing Astro pour les **produits à base d'agents IA**, construi
 3. `src/styles/global.css` — les couleurs sont dans le bloc `@theme`
 4. `src/content/blog/` — articles en markdown
 
-## Commandes
+## Documentation
 
-```bash
-npm install     # install
-npm run dev     # localhost:4321
-npm run build   # ./dist/
-```
+La documentation complète est dans [`docs/`](./docs/).
+
+| | |
+|---|---|
+| [Démarrage](./docs/getting-started.md) | Installer, lancer, et les fichiers que tu modifieras vraiment |
+| [Déploiement](./docs/deploying.md) | Cloudflare, Netlify, Vercel, et ailleurs |
+| [Contenu](./docs/content.md) | Articles, auteurs, la matrice de permissions |
+| [Personnalisation](./docs/customising.md) | Couleurs, typographie, motion, et ce qu'il ne faut pas casser |
+| [Dépannage](./docs/troubleshooting.md) | Toutes les erreurs que ce template peut produire |
 
 ## Astroloop Pro
 

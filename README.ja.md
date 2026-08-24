@@ -8,6 +8,8 @@
 
 ![Astroloop のホームページ](./.github/assets/hero.png)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lx-themes/astroloop) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lx-themes/astroloop) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lx-themes/astroloop)
+
 ## 機能
 
 - **エージェントループ図** — 目標・計画・実行・ツール呼び出し・観察、そして人を待つゲート。純粋な SVG。
@@ -29,13 +31,17 @@
 3. `src/styles/global.css` — 色は `@theme` ブロックに
 4. `src/content/blog/` — markdown 記事
 
-## コマンド
+## ドキュメント
 
-```bash
-npm install     # install
-npm run dev     # localhost:4321
-npm run build   # ./dist/
-```
+完全なドキュメントは [`docs/`](./docs/) にあります。
+
+| | |
+|---|---|
+| [はじめに](./docs/getting-started.md) | インストール、起動、実際に編集するファイル |
+| [デプロイ](./docs/deploying.md) | Cloudflare・Netlify・Vercel、そのほか |
+| [コンテンツ](./docs/content.md) | 記事、著者、権限マトリクス |
+| [カスタマイズ](./docs/customising.md) | 色・書体・モーションと、壊してはいけないもの |
+| [トラブルシューティング](./docs/troubleshooting.md) | このテンプレートが出しうる全エラーと対処 |
 
 ## Astroloop Pro
 

@@ -8,6 +8,8 @@
 
 ![Astroloop 首页](./.github/assets/hero.png)
 
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/lx-themes/astroloop) [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/lx-themes/astroloop) [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/lx-themes/astroloop)
+
 ## 功能
 
 - **Agent 循环图** —— 目标、规划、执行、调用工具、观察，以及停下来等人的闸门。纯 SVG。
@@ -29,13 +31,17 @@
 3. `src/styles/global.css` —— 颜色都在 `@theme` 块里
 4. `src/content/blog/` —— markdown 文章
 
-## 命令
+## 文档
 
-```bash
-npm install     # install
-npm run dev     # localhost:4321
-npm run build   # ./dist/
-```
+完整文档在 [`docs/`](./docs/)。
+
+| | |
+|---|---|
+| [快速开始](./docs/getting-started.md) | 安装、运行，以及你真正会改的那几个文件 |
+| [部署](./docs/deploying.md) | Cloudflare、Netlify、Vercel，以及别的地方 |
+| [内容](./docs/content.md) | 博客文章、作者、权限矩阵 |
+| [定制](./docs/customising.md) | 颜色、字体、动效，以及不该动的东西 |
+| [排错](./docs/troubleshooting.md) | 这个模板会报的每一个错，和对应的解法 |
 
 ## Astroloop Pro
 
