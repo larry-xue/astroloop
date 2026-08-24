@@ -4,9 +4,13 @@ export const site = {
   name: 'Astroloop',
   // The fictional product this demo is for. Rename it and the rest follows.
   product: 'Astroloop',
+  /* Used only in <title>. The tagline is the hero headline and runs to fifty
+     characters, which pushed every home page title past the 60-character point
+     where search results truncate. */
+  titleSuffix: 'Astro template for AI agent products',
   tagline: 'The agent that closes your backlog while you sleep.',
   description:
-    'Astroloop is an Astro landing page template for AI agent products, built around the questions autonomy actually raises: what can it touch, what did it do, and what does it cost.',
+    'An Astro landing page template for AI agent products: the agent loop, a per-tool permission matrix, and what a run actually costs.',
   email: 'azoux0311@gmail.com',
   repo: 'https://github.com/lx-themes/astroloop',
   nav: [

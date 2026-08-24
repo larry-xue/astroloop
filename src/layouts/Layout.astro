@@ -13,8 +13,44 @@ interface Props {
   image?: string
 }
 const { title, description = site.description, image = '/og.png' } = Astro.props
-const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.tagline}`
+const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.titleSuffix}`
+
 const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href
+
+/* Answer engines resolve entities, not adjectives — this is the machine-readable
+   version of "what is this and who makes it". SoftwareApplication because that
+   is what an agent product is; the Organization is separate so a citation can
+   attribute the maker rather than the page. */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'SoftwareApplication',
+      '@id': `${site.url}/#app`,
+      name: site.product,
+      description: site.description,
+      url: site.url,
+      applicationCategory: 'DeveloperApplication',
+      operatingSystem: 'Web',
+      publisher: { '@id': `${site.url}/#org` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${site.url}/#org`,
+      name: site.name,
+      url: site.url,
+      email: site.email,
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${canonical}#page`,
+      url: canonical,
+      name: pageTitle,
+      description,
+      isPartOf: { '@id': `${site.url}/#org` },
+    },
+  ],
+}
 const ogImage = new URL(image, Astro.site ?? site.url).href
 ---
 
@@ -25,6 +61,7 @@ const ogImage = new URL(image, Astro.site ?? site.url).href
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)}></script>
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />

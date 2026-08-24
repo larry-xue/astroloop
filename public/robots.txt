@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astroloop.larryxue.dev/sitemap-index.xml

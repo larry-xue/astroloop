@@ -31,7 +31,12 @@
 
   /* Approval-required warnings in the permission matrix. */
   --color-caution-400: oklch(82% 0.14 78);
-  --color-caution-600: oklch(65% 0.14 62);
+  /* 56%, not 65%. Measured against white it was 3.22:1 and against the amber
+     tint behind the hero gate 3.05:1 — both under the 4.5:1 AA floor, and this
+     token carries the "waiting for a person" line and the losing row of the
+     evals table, which are the two places the site cannot afford to be
+     skimmed past. 58% still measured 4.47. */
+  --color-caution-600: oklch(56% 0.14 62);
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
