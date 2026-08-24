@@ -54,8 +54,24 @@ eine ganze Website statt über eine einzelne Landingpage.
 
 **[Live-Demo](https://astroloop-pro.larryxue.dev)** — alle folgenden Abschnitte sind dort zu sehen.
 
-- **Sechs eingebaute KI-Skills** — `.claude/skills/` plus `AGENTS.md` und `DESIGN.md`,
-  damit eine mit Claude, Cursor oder Codex bearbeitete Seite noch nach der Seite aussieht
+### Sechs KI-Skills, im Repository
+
+Der Grund zu kaufen statt zu forken. In `.agents/skills/` **und**
+`.claude/skills/`, mit einer `AGENTS.md` und einer `DESIGN.md`, die jeder Skill
+liest — eine mit Claude Code, Cursor, Codex, Copilot oder Gemini CLI bearbeitete
+Seite sieht danach noch nach der Seite aus.
+
+| Skill | Wofür |
+|---|---|
+| `astroloop-brief` | Klärt, was deine Seite belegen muss. Eine Frage nach der anderen. |
+| `astroloop-design` | Findet und behebt Abweichungen — Tokens, Kontrast, Motion. |
+| `astroloop-copy` | Kürzt Texte auf Maß. Streicht Behauptungen ohne Bedingung. |
+| `astroloop-seo` | Seiten-SEO, programmatische Seiten und GEO für Antwortmaschinen. |
+| `astroloop-blog` | Beiträge, die verlinkt werden — an die Content Collections angebunden. |
+| `astroloop-study` | Liest zuerst, wie drei vergleichbare Projekte es gelöst haben. |
+
+### Und
+
 - **29 Seiten, 29 Komponenten** — Dokumentation mit Seitenleiste, Evaluierungen,
   Changelog, Integrationen, Sicherheit, Rechtliches
 - **Interaktive Tool-Call-Timeline** — ein Durchlauf Schritt für Schritt,

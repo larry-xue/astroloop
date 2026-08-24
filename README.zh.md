@@ -53,8 +53,23 @@ npm run build   # ./dist/
 
 **[在线预览](https://astroloop-pro.larryxue.dev)** —— 下面这些区块都在上面。
 
-- **内置六个 AI skill** —— `.claude/skills/` 加上 `AGENTS.md` 和 `DESIGN.md`，
-  用 Claude / Cursor / Codex 改完的页面，回来还是这个站的样子
+### 仓库里的六个 AI skill
+
+买而不是 fork 的理由。`.agents/skills/` **和** `.claude/skills/` 两套目录都有，
+外加一份 `AGENTS.md` 和一份 `DESIGN.md`，每个 skill 都会读——用 Claude Code、
+Cursor、Codex、Copilot 或 Gemini CLI 改完的页面，回来还是这个站的样子。
+
+| Skill | 做什么 |
+|---|---|
+| `astroloop-brief` | 问清楚这个站要证明什么。一次只问一个问题。 |
+| `astroloop-design` | 找出并修掉走样——色板、对比度、动效、布局。 |
+| `astroloop-copy` | 把文案砍到该有的长度。删掉没有前提的断言。 |
+| `astroloop-seo` | 页面 SEO、批量页面、面向答案引擎的 GEO。 |
+| `astroloop-blog` | 值得被链接的文章，已接好 content collections。 |
+| `astroloop-study` | 先去读三个同类项目是怎么解决的。 |
+
+### 以及
+
 - **29 个页面、29 个组件** —— 带侧栏的文档、评测、更新日志、集成、安全、法务
 - **可交互的工具调用时间线** —— 一次运行逐步回放，包含失败的那一步和被拒绝的那次调用
 - **用量估算器** —— 按月运行次数对应套餐，不计费的运行是当作抵扣显示的，不是藏起来

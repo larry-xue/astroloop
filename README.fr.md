@@ -54,8 +54,24 @@ déployé sur un site entier plutôt que sur une seule landing page.
 
 **[Démo en ligne](https://astroloop-pro.larryxue.dev)** — toutes les sections ci-dessous y figurent.
 
-- **Six skills IA intégrés** — `.claude/skills/` plus `AGENTS.md` et `DESIGN.md`,
-  pour qu'une page modifiée avec Claude, Cursor ou Codex ressemble encore au site
+### Six skills IA, dans le dépôt
+
+La raison d'acheter plutôt que de forker. Livrés dans `.agents/skills/` **et**
+`.claude/skills/`, avec un `AGENTS.md` et un `DESIGN.md` que chaque skill lit —
+une page modifiée avec Claude Code, Cursor, Codex, Copilot ou Gemini CLI
+ressemble encore au reste du site.
+
+| Skill | Ce qu'il fait |
+|---|---|
+| `astroloop-brief` | Détermine ce que ton site doit prouver. Une question à la fois. |
+| `astroloop-design` | Repère et corrige les dérives — tokens, contraste, motion. |
+| `astroloop-copy` | Ramène le texte à la bonne longueur. Supprime les affirmations sans condition. |
+| `astroloop-seo` | SEO de page, pages programmatiques et GEO pour les moteurs de réponse. |
+| `astroloop-blog` | Des articles qui méritent un lien, câblés aux content collections. |
+| `astroloop-study` | Lit d'abord comment trois projets comparables l'ont résolu. |
+
+### Et
+
 - **29 pages, 29 composants** — documentation avec barre latérale, évaluations,
   changelog, intégrations, sécurité, mentions légales
 - **Chronologie interactive des appels d'outils** — une exécution rejouée étape

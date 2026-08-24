@@ -54,8 +54,23 @@ npm run build   # ./dist/
 
 **[ライブデモ](https://astroloop-pro.larryxue.dev)** — 以下のセクションはすべてデモ上にあります。
 
-- **AI スキルを 6 つ内蔵** — `.claude/skills/` と `AGENTS.md`・`DESIGN.md`。
-  Claude / Cursor / Codex で編集してもサイトの見た目が保たれます
+### リポジトリに入っている AI スキル 6 つ
+
+fork ではなく購入する理由です。`.agents/skills/` **と** `.claude/skills/` の両方に
+同梱され、全スキルが読む `AGENTS.md` と `DESIGN.md` が付きます。Claude Code・
+Cursor・Codex・Copilot・Gemini CLI のどれで編集しても、サイトの見た目が保たれます。
+
+| スキル | 何をするか |
+|---|---|
+| `astroloop-brief` | このサイトが何を証明すべきかを詰めます。質問は一度に一つ。 |
+| `astroloop-design` | ずれを検出して直します——トークン、コントラスト、モーション。 |
+| `astroloop-copy` | コピーを規定の長さまで削ります。条件のない主張を削除します。 |
+| `astroloop-seo` | ページ SEO、プログラマティックページ、回答エンジン向け GEO。 |
+| `astroloop-blog` | リンクされる価値のある記事。content collections に接続済み。 |
+| `astroloop-study` | まず同種の 3 プロジェクトの解き方を読みます。 |
+
+### さらに
+
 - **29 ページ、29 コンポーネント** — サイドバー付きドキュメント、評価、
   変更履歴、連携、セキュリティ、法務
 - **インタラクティブなツール呼び出しタイムライン** — 1 回の実行をステップごとに

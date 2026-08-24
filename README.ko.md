@@ -54,8 +54,24 @@ npm run build   # ./dist/
 
 **[라이브 데모](https://astroloop-pro.larryxue.dev)** — 아래 섹션은 모두 데모에 있습니다.
 
-- **AI 스킬 6개 내장** — `.claude/skills/` 와 `AGENTS.md`, `DESIGN.md`.
-  Claude · Cursor · Codex 로 편집해도 사이트다운 모습이 유지됩니다
+### 저장소에 들어 있는 AI 스킬 6개
+
+fork 대신 구매할 이유입니다. `.agents/skills/` **와** `.claude/skills/` 양쪽에
+들어 있고, 모든 스킬이 읽는 `AGENTS.md` 와 `DESIGN.md` 가 함께 옵니다 — Claude
+Code, Cursor, Codex, Copilot, Gemini CLI 중 무엇으로 편집해도 사이트다운 모습이
+유지됩니다.
+
+| 스킬 | 하는 일 |
+|---|---|
+| `astroloop-brief` | 이 사이트가 무엇을 증명해야 하는지 정리합니다. 한 번에 한 질문. |
+| `astroloop-design` | 어긋난 곳을 찾아 고칩니다 — 토큰, 대비, 모션, 레이아웃. |
+| `astroloop-copy` | 카피를 규정 길이로 줄입니다. 조건 없는 주장을 걷어냅니다. |
+| `astroloop-seo` | 페이지 SEO, 대량 생성 페이지, 답변 엔진용 GEO. |
+| `astroloop-blog` | 링크할 가치가 있는 글. content collections에 연결되어 있습니다. |
+| `astroloop-study` | 비슷한 프로젝트 세 곳이 어떻게 풀었는지 먼저 읽습니다. |
+
+### 그 밖에
+
 - **29개 페이지, 29개 컴포넌트** — 사이드바가 있는 문서, 평가, 변경 이력,
   연동, 보안, 법적 고지
 - **인터랙티브 도구 호출 타임라인** — 한 번의 실행을 단계별로 재생하며,
