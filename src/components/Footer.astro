@@ -8,10 +8,9 @@ import { site } from '../data/site'
       <p class="mt-1 max-w-sm text-sm text-ink-500 dark:text-ink-400">{site.tagline}</p>
     </div>
     <nav class="flex flex-wrap gap-x-7 gap-y-3 text-sm" aria-label="Footer">
-      {site.nav.map((n) => (
+      {[...site.nav, ...(site.footerNav ?? [])].map((n) => (
         <a href={n.href} class="text-ink-600 hover:text-ink-900 dark:text-ink-400 dark:hover:text-white">{n.label}</a>
       ))}
-      <a href="/contact" class="text-ink-600 hover:text-ink-900 dark:text-ink-400 dark:hover:text-white">Contact</a>
     </nav>
   </div>
 </footer>

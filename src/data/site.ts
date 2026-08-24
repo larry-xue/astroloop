@@ -15,4 +15,11 @@ export const site = {
     { label: 'Pricing', href: '/pricing' },
     { label: 'Blog', href: '/blog' },
   ],
+  /** Secondary links, shown in the footer only. */
+  footerNav: [
+    { label: 'About', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'Privacy', href: '/legal/privacy' },
+    { label: 'Terms', href: '/legal/terms' },
+  ],
 }

@@ -31,12 +31,18 @@ marketing, blanks read as a real permission list.
 Underneath it sits the tool definition in code, so the table is verifiable
 rather than decorative.
 
-## ✨ Everything else
+## 📄 What is in it
+
+13 pages: home, pricing, blog with posts, contact, about, legal, 404 — plus a
+usage-based pricing page, because agent products do not sell seats.
+
+## ✨ Engineering
 
 - **Astro 7** and **Tailwind CSS 4**
-- **Zero client-side JavaScript** — no animation library, no smooth-scroll
-  hijacking, and no view-transition router. Motion is CSS scroll-driven
-  animation and the native `@view-transition` rule; both degrade to static.
+- Native CSS view transitions, including shared elements from the blog index
+  into the post — no router involved
+- Motion is CSS scroll-driven animation and degrades to static. No animation
+  library, and nothing hijacks the scroll.
 - Fonts via Astro's built-in pipeline: downloaded at build time, served from
   this origin, preloaded, and with fallback metrics so the swap does not shift
   the layout. No third-party font origin and no font dependency to update.
