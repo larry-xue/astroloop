@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content'
 import { site } from '../data/site'
 import AvatarStack from './AvatarStack.astro'
+import HeroVisual from './HeroVisual.astro'
 
 const people = (await getCollection('testimonials'))
   .map((t) => t.data)
@@ -9,7 +10,8 @@ const people = (await getCollection('testimonials'))
   .sort((a, b) => a.order - b.order)
 ---
 <section class="border-b border-ink-100 py-20 sm:py-28 dark:border-ink-800">
-  <div class="container-page" data-rise>
+  <div class="container-page grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,26rem)] lg:gap-16">
+    <div>
     <p class="eyebrow">Autonomous, on a leash</p>
     <h1 class="mt-4 max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight text-ink-900 sm:text-6xl dark:text-white">
       {site.tagline}
@@ -34,5 +36,8 @@ const people = (await getCollection('testimonials'))
     <p class="mt-6 font-mono text-xs text-ink-500 dark:text-ink-400">
       No card. Every action logged. Revoke a tool and the next run respects it.
     </p>
+    </div>
+
+    <HeroVisual />
   </div>
 </section>

@@ -1,0 +1,137 @@
+---
+import { Icon } from 'astro-icon/components'
+
+/**
+ * The hero visual: a run in progress, not an illustration.
+ *
+ * The templates this sits next to either use a stock illustration (Astroship's
+ * astronaut) or nothing at all (Cal.com). Dub.co draws its own product surface
+ * instead, and that is the right model here — a cartoon would argue against
+ * everything the rest of the page says, and the product itself is the only
+ * thing on this page that no other Astro template can show.
+ *
+ * Static markup. On the paid template GSAP steps through it; without motion it
+ * simply reads as a completed run that stopped at approval, which is the point
+ * either way.
+ */
+const steps = [
+  { at: '00:03', tool: 'github.search', text: '3 files reference buildCacheKey', status: 'ok' },
+  { at: '00:18', tool: 'shell.test', text: '1 failing — the fixture never renames', status: 'failed' },
+  { at: '00:34', tool: 'github.openPullRequest', text: '#1203 opened as a draft', status: 'ok' },
+  { at: '00:36', tool: 'github.merge', text: 'Not called — requires approval', status: 'refused' },
+] as const
+
+const DOT = {
+  ok: 'lucide:check',
+  failed: 'lucide:x',
+  refused: 'lucide:shield-alert',
+} as const
+---
+
+<div class="hv" data-hero-visual>
+  <div class="hv-bar">
+    <span class="hv-dot" aria-hidden="true"></span>
+    <span class="hv-dot" aria-hidden="true"></span>
+    <span class="hv-dot" aria-hidden="true"></span>
+    <span class="hv-title">run · issue #482</span>
+    <span class="hv-live"><span class="hv-pulse" aria-hidden="true"></span>live</span>
+  </div>
+
+  <ol class="hv-body">
+    {steps.map((s, i) => (
+      <li class={`hv-step hv-${s.status}`} style={`--i:${i}`}>
+        <span class="hv-at">{s.at}</span>
+        <span class="hv-icon" aria-hidden="true"><Icon name={DOT[s.status]} class="size-3" /></span>
+        <span class="hv-text">
+          <span class="hv-tool">{s.tool}</span>
+          <span class="hv-note">{s.text}</span>
+        </span>
+      </li>
+    ))}
+  </ol>
+
+  <div class="hv-foot">
+    <span class="hv-gate"><Icon name="lucide:pause" class="size-3.5" aria-hidden="true" />Waiting for a person</span>
+    <span class="hv-assign">@rina-k</span>
+  </div>
+</div>
+
+<style>
+  @reference "../styles/global.css";
+
+  .hv {
+    border: 1px solid var(--color-ink-200);
+    border-radius: 0.9rem;
+    background: #fff;
+    box-shadow: 0 22px 60px -28px rgb(0 0 0 / 0.28);
+    overflow: hidden;
+    font-family: var(--font-mono);
+  }
+  :global(.dark) .hv { border-color: var(--color-ink-800); background: var(--color-ink-900); }
+
+  .hv-bar {
+    display: flex; align-items: center; gap: 0.4rem;
+    padding: 0.7rem 0.95rem;
+    border-bottom: 1px solid var(--color-ink-100);
+    background: var(--color-ink-50);
+  }
+  :global(.dark) .hv-bar { border-bottom-color: var(--color-ink-800); background: color-mix(in oklch, var(--color-ink-950) 55%, transparent); }
+  .hv-dot { width: 0.44rem; height: 0.44rem; border-radius: 50%; background: var(--color-ink-200); }
+  :global(.dark) .hv-dot { background: var(--color-ink-700); }
+  .hv-title { margin-left: 0.45rem; font-size: 0.6875rem; color: var(--color-ink-500); }
+  :global(.dark) .hv-title { color: var(--color-ink-400); }
+  .hv-live {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 0.35rem;
+    font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-signal-700);
+  }
+  :global(.dark) .hv-live { color: var(--color-signal-400); }
+  .hv-pulse { width: 0.35rem; height: 0.35rem; border-radius: 50%; background: currentColor; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hv-pulse { animation: hv-pulse 1.8s ease-in-out infinite; }
+    @keyframes hv-pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.25 } }
+  }
+
+  .hv-body { list-style: none; margin: 0; padding: 0.35rem 0; }
+  .hv-step {
+    display: grid; grid-template-columns: 2.6rem 1.1rem minmax(0, 1fr);
+    align-items: start; gap: 0.6rem;
+    padding: 0.55rem 0.95rem;
+  }
+  .hv-at { font-size: 0.625rem; color: var(--color-ink-400); padding-top: 0.18rem; }
+  :global(.dark) .hv-at { color: var(--color-ink-500); }
+  .hv-icon {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.1rem; height: 1.1rem; border-radius: 999px;
+    border: 1px solid var(--color-ink-200); color: var(--color-ink-400);
+  }
+  :global(.dark) .hv-icon { border-color: var(--color-ink-700); color: var(--color-ink-500); }
+  .hv-ok .hv-icon { border-color: var(--color-signal-500); color: var(--color-signal-700); }
+  :global(.dark) .hv-ok .hv-icon { color: var(--color-signal-400); }
+  .hv-failed .hv-icon { border-color: oklch(58% 0.19 25); color: oklch(52% 0.19 25); }
+  :global(.dark) .hv-failed .hv-icon { border-color: oklch(70% 0.17 25); color: oklch(72% 0.17 25); }
+  .hv-refused .hv-icon { border-style: dashed; border-color: var(--color-caution-600); color: var(--color-caution-600); }
+  :global(.dark) .hv-refused .hv-icon { border-color: var(--color-caution-400); color: var(--color-caution-400); }
+
+  .hv-text { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
+  .hv-tool { font-size: 0.75rem; font-weight: 500; color: var(--color-ink-900); }
+  :global(.dark) .hv-tool { color: #fff; }
+  .hv-refused .hv-tool { text-decoration: line-through; text-decoration-color: var(--color-caution-600); }
+  .hv-note { font-size: 0.6875rem; line-height: 1.45; color: var(--color-ink-500); }
+  :global(.dark) .hv-note { color: var(--color-ink-400); }
+
+  .hv-foot {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.75rem 0.95rem;
+    border-top: 1px dashed var(--color-caution-600);
+    background: color-mix(in oklch, var(--color-caution-400) 10%, transparent);
+  }
+  :global(.dark) .hv-foot { border-top-color: var(--color-caution-400); }
+  .hv-gate {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-size: 0.6875rem; font-weight: 500; color: var(--color-caution-600);
+  }
+  :global(.dark) .hv-gate { color: var(--color-caution-400); }
+  .hv-assign { font-size: 0.6875rem; color: var(--color-ink-500); }
+  :global(.dark) .hv-assign { color: var(--color-ink-400); }
+</style>
