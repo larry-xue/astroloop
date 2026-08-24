@@ -58,7 +58,7 @@ across a whole site instead of a landing page.
 - **Keystatic CMS** and **Pagefind search**
 - GSAP and Lenis scroll motion, deferred until after paint
 
-[**Buy — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) one end product · [**Unlimited — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+[**Buy — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) · unlimited projects, yours and your clients'
 Fourteen-day refund, no questions. support@larryxue.dev
 
 ## License

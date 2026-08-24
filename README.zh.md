@@ -54,7 +54,7 @@ npm run build   # ./dist/
 - **Keystatic CMS** 和 **Pagefind 搜索**
 - GSAP + Lenis 滚动动效，首屏绘制后才加载
 
-[**购买 — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) 一个最终产品 · [**不限量 — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+[**购买 — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) · 不限项目数，自己的和客户的都算
 十四天无理由退款。support@larryxue.dev
 
 ## 许可

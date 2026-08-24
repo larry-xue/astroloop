@@ -58,7 +58,7 @@ llevado a un sitio entero en lugar de una sola landing.
 - **Keystatic CMS** y **búsqueda Pagefind**
 - Movimiento de scroll con GSAP y Lenis, diferido hasta después del pintado
 
-[**Comprar — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) un producto final · [**Ilimitado — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+[**Comprar — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) · proyectos ilimitados, tuyos y de tus clientes
 Reembolso de catorce días, sin preguntas. support@larryxue.dev
 
 ## Licencia

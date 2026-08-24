@@ -58,7 +58,7 @@ déployé sur un site entier plutôt que sur une seule landing page.
 - **Keystatic CMS** et **recherche Pagefind**
 - Animations de scroll GSAP et Lenis, différées après le premier rendu
 
-[**Acheter — 79 $**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) un produit final · [**Illimité — 199 $**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+[**Acheter — 79 $**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) · projets illimités, les tiens et ceux de tes clients
 Remboursement sous quatorze jours, sans justification. support@larryxue.dev
 
 ## Licence

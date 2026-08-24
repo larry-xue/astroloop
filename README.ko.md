@@ -58,7 +58,7 @@ npm run build   # ./dist/
 - **Keystatic CMS** 와 **Pagefind 검색**
 - GSAP · Lenis 스크롤 모션, 첫 페인트 이후로 지연 로딩
 
-[**구매 — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) 최종 결과물 1개 · [**무제한 — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+[**구매 — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) · 프로젝트 수 무제한(본인 작업과 클라이언트 작업 모두)
 14일 이내 전액 환불, 사유 불문. support@larryxue.dev
 
 ## 라이선스
