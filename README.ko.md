@@ -41,6 +41,26 @@ npm run dev     # localhost:4321
 npm run build   # ./dist/
 ```
 
+## Astroloop Pro
+
+이 템플릿은 계속 MIT이고 계속 유지보수됩니다. Pro는 같은 디자인을 랜딩 페이지
+한 장이 아니라 사이트 전체에 펼친 버전입니다.
+
+**[라이브 데모](https://astroloop-pro.larryxue.dev)** — 아래 섹션은 모두 데모에 있습니다.
+
+- **29개 페이지, 29개 컴포넌트** — 사이드바가 있는 문서, 평가, 변경 이력,
+  연동, 보안, 법적 고지
+- **인터랙티브 도구 호출 타임라인** — 한 번의 실행을 단계별로 재생하며,
+  실패한 단계와 거부된 호출까지 포함합니다
+- **사용량 추정기** — 플랜 대비 월 실행 횟수를 계산하고, 과금되지 않는 실행을
+  숨기지 않고 차감으로 표시합니다
+- **8개 언어** — hreflang 대체 링크와 언어 전환 포함
+- **Keystatic CMS** 와 **Pagefind 검색**
+- GSAP · Lenis 스크롤 모션, 첫 페인트 이후로 지연 로딩
+
+[**구매 — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) 최종 결과물 1개 · [**무제한 — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+14일 이내 전액 환불, 사유 불문. support@larryxue.dev
+
 ## 라이선스
 
 MIT

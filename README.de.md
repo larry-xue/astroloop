@@ -41,6 +41,26 @@ npm run dev     # localhost:4321
 npm run build   # ./dist/
 ```
 
+## Astroloop Pro
+
+Dieses Template bleibt MIT und bleibt gepflegt. Pro ist dasselbe Design über
+eine ganze Website statt über eine einzelne Landingpage.
+
+**[Live-Demo](https://astroloop-pro.larryxue.dev)** — alle folgenden Abschnitte sind dort zu sehen.
+
+- **29 Seiten, 29 Komponenten** — Dokumentation mit Seitenleiste, Evaluierungen,
+  Changelog, Integrationen, Sicherheit, Rechtliches
+- **Interaktive Tool-Call-Timeline** — ein Durchlauf Schritt für Schritt,
+  einschließlich des fehlgeschlagenen Schritts und des abgelehnten Aufrufs
+- **Nutzungsrechner** — Läufe pro Monat gegen einen Tarif, wobei nicht
+  abgerechnete Läufe als Abzug erscheinen statt versteckt zu werden
+- **Acht Sprachen** mit hreflang-Alternates und Umschalter
+- **Keystatic CMS** und **Pagefind-Suche**
+- Scroll-Animation mit GSAP und Lenis, erst nach dem Rendern geladen
+
+[**Kaufen — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) ein Endprodukt · [**Unbegrenzt — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+Vierzehn Tage Rückgaberecht, ohne Nachfragen. support@larryxue.dev
+
 ## Lizenz
 
 MIT

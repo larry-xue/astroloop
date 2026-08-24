@@ -41,6 +41,22 @@ npm run dev     # localhost:4321
 npm run build   # ./dist/
 ```
 
+## Astroloop Pro
+
+这个模板会一直是 MIT，也会一直维护。Pro 是同一套设计铺满整站，而不只是一个落地页。
+
+**[在线预览](https://astroloop-pro.larryxue.dev)** —— 下面这些区块都在上面。
+
+- **29 个页面、29 个组件** —— 带侧栏的文档、评测、更新日志、集成、安全、法务
+- **可交互的工具调用时间线** —— 一次运行逐步回放，包含失败的那一步和被拒绝的那次调用
+- **用量估算器** —— 按月运行次数对应套餐，不计费的运行是当作抵扣显示的，不是藏起来
+- **八国语言**，带 hreflang 和语言切换
+- **Keystatic CMS** 和 **Pagefind 搜索**
+- GSAP + Lenis 滚动动效，首屏绘制后才加载
+
+[**购买 — $79**](https://buy.polar.sh/polar_cl_1nwNqH1oFO2OMEWD3GY5UqGCu3iuyeqRqAVQL4V821m) 一个最终产品 · [**不限量 — $199**](https://buy.polar.sh/polar_cl_0AfEdfw7kIRiNfirht9MQUBsqWV0caYk7aeGb3J7ojP)
+十四天无理由退款。support@larryxue.dev
+
 ## 许可
 
 MIT
