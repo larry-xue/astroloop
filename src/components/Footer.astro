@@ -18,6 +18,20 @@ import { site } from '../data/site'
  * shipping no form.
  */
 const wordmark = site.name.replace(/\s+Pro$/i, '')
+
+/* Sized so the word spans the width instead of overflowing it.
+ *
+ * Measured on this typeface at three viewports, the rendered width is a
+ * constant 0.629em per character at this weight and tracking — 440/78,
+ * 872/153.6 and 1540/272 all give 5.66 for a nine-letter word. So the font size
+ * that fills a fraction `fill` of the viewport is fill / (0.629 · n) in vw.
+ *
+ * Computed from the word rather than hardcoded, because renaming the product is
+ * the first thing anyone does with this template and a fixed 20vw was already
+ * a hundred pixels too wide for "Astroloop". */
+const PER_CHAR_EM = 0.629
+const fill = 0.96
+const wordVw = (100 * fill) / (PER_CHAR_EM * Math.max(wordmark.length, 1))
 ---
 
 <footer data-pagefind-ignore class="relative overflow-hidden border-t border-ink-100 dark:border-ink-800">
@@ -80,7 +94,7 @@ const wordmark = site.name.replace(/\s+Pro$/i, '')
 
   <!-- watermark -->
   <div class="pointer-events-none relative select-none" aria-hidden="true">
-    <p class="wordmark">{wordmark}</p>
+    <p class="wordmark" style={`--word-vw:${wordVw.toFixed(2)}vw`}>{wordmark}</p>
   </div>
 </footer>
 
@@ -89,17 +103,18 @@ const wordmark = site.name.replace(/\s+Pro$/i, '')
 
   .wordmark {
     margin: 0;
-    padding-inline: clamp(1rem, 4vw, 3rem);
-    /* Sized so one word fills the width at any viewport. `vw` rather than a
-       container query because the band is deliberately allowed to be wider than
-       its container — the clipping is the effect. */
-    font-size: clamp(4rem, 20vw, 17rem);
+    padding-inline: 0;
+    text-align: center;
+    font-size: min(var(--word-vw, 17vw), 17rem);
     font-weight: 800;
     letter-spacing: -0.055em;
     line-height: 0.78;
     text-transform: uppercase;
     white-space: nowrap;
-    /* Translated down so the baseline is cropped by the footer edge. */
+    /* Translated down so the baseline is cropped by the footer edge. Overflow
+       stays hidden on the footer: at very long product names the word still runs
+       past the edge, and clipping both sides equally reads as deliberate where
+       clipping only the right reads as a bug. */
     transform: translateY(0.14em);
     color: var(--color-ink-100);
   }
