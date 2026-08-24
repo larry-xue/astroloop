@@ -1,16 +1,114 @@
 ---
 import { site } from '../data/site'
+
+/**
+ * Three bands: a signup row, the links, and the wordmark as a watermark.
+ *
+ * The wordmark is `aria-hidden` and sits at very low contrast on purpose — it
+ * is texture, not text. It is also the reason the footer does not need a
+ * decorative image: one word set enormous and nearly invisible carries the same
+ * weight as an illustration and costs nothing to load.
+ *
+ * It is clipped rather than scrolled: `overflow: hidden` on the band means the
+ * word can be wider than the viewport without the page gaining a horizontal
+ * scrollbar, which is what happens if you size it with `vw` and forget.
+ *
+ * The form posts nowhere by default. Point `action` at your list and delete the
+ * `onsubmit` guard — shipping a form that silently does nothing is worse than
+ * shipping no form.
+ */
+const wordmark = site.name.replace(/\s+Pro$/i, '')
 ---
-<footer class="border-t border-ink-100 py-14 dark:border-ink-800">
-  <div class="container-page flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+
+<footer data-pagefind-ignore class="relative overflow-hidden border-t border-ink-100 dark:border-ink-800">
+  <!-- signup -->
+  <div class="container-page border-b border-ink-100 py-12 dark:border-ink-800">
+    <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h2 class="text-xl font-semibold tracking-tight text-ink-900 sm:text-2xl dark:text-white">
+          What we got wrong, once a month.
+        </h2>
+        <p class="mt-1.5 max-w-md text-sm text-ink-500 dark:text-ink-400">
+          Postmortems and numbers from running agents in production. No launch announcements.
+        </p>
+      </div>
+
+      <form
+        class="flex w-full max-w-sm items-center gap-2"
+        action="#"
+        method="post"
+        onsubmit="event.preventDefault(); this.querySelector('[data-note]').hidden = false"
+      >
+        <label class="sr-only" for="footer-email">Email address</label>
+        <input
+          id="footer-email"
+          type="email"
+          name="email"
+          required
+          autocomplete="email"
+          placeholder="you@company.com"
+          class="min-w-0 flex-1 rounded-lg border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 outline-none transition-colors placeholder:text-ink-400 focus-visible:border-signal-600 focus-visible:ring-2 focus-visible:ring-signal-600/25 dark:border-ink-700 dark:bg-ink-900 dark:text-white dark:placeholder:text-ink-500 dark:focus-visible:border-signal-400 dark:focus-visible:ring-signal-400/25"
+        />
+        <button
+          type="submit"
+          class="shrink-0 rounded-lg bg-ink-900 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal-600 dark:bg-white dark:text-ink-900 dark:hover:bg-ink-100"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+    <p data-note hidden class="mt-3 font-mono text-xs text-ink-500 dark:text-ink-400">
+      This demo form is not wired to a list. Point its <code>action</code> at yours.
+    </p>
+  </div>
+
+  <!-- links -->
+  <div class="container-page relative z-10 flex flex-col gap-8 py-12 sm:flex-row sm:items-start sm:justify-between">
     <div>
       <p class="font-semibold text-ink-900 dark:text-white">{site.name}</p>
       <p class="mt-1 max-w-sm text-sm text-ink-500 dark:text-ink-400">{site.tagline}</p>
+      <p class="mt-4 font-mono text-xs text-ink-500 dark:text-ink-400">
+        &copy; {new Date().getFullYear()} · <a class="hover:text-ink-900 dark:hover:text-white" href={`mailto:${site.email}`}>{site.email}</a>
+      </p>
     </div>
     <nav class="flex flex-wrap gap-x-7 gap-y-3 text-sm" aria-label="Footer">
       {[...site.nav, ...(site.footerNav ?? [])].map((n) => (
-        <a href={n.href} class="text-ink-600 hover:text-ink-900 dark:text-ink-400 dark:hover:text-white">{n.label}</a>
+        <a href={n.href} class="text-ink-600 transition-colors hover:text-ink-900 dark:text-ink-400 dark:hover:text-white">{n.label}</a>
       ))}
     </nav>
   </div>
+
+  <!-- watermark -->
+  <div class="pointer-events-none relative select-none" aria-hidden="true">
+    <p class="wordmark">{wordmark}</p>
+  </div>
 </footer>
+
+<style>
+  @reference "../styles/global.css";
+
+  .wordmark {
+    margin: 0;
+    padding-inline: clamp(1rem, 4vw, 3rem);
+    /* Sized so one word fills the width at any viewport. `vw` rather than a
+       container query because the band is deliberately allowed to be wider than
+       its container — the clipping is the effect. */
+    font-size: clamp(4rem, 20vw, 17rem);
+    font-weight: 800;
+    letter-spacing: -0.055em;
+    line-height: 0.78;
+    text-transform: uppercase;
+    white-space: nowrap;
+    /* Translated down so the baseline is cropped by the footer edge. */
+    transform: translateY(0.14em);
+    color: var(--color-ink-100);
+  }
+
+  :global(.dark) .wordmark {
+    color: var(--color-ink-800);
+  }
+
+  @media (prefers-contrast: more) {
+    .wordmark { display: none; }
+  }
+</style>
