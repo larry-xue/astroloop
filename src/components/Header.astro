@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { site } from '../data/site'
+import MobileMenu from './MobileMenu.astro'
 ---
 <header class="sticky top-0 z-40 border-b border-ink-100 bg-white/85 backdrop-blur-md dark:border-ink-800 dark:bg-ink-950/85">
   <div class="container-page flex h-16 items-center justify-between gap-6">
@@ -18,7 +19,7 @@ import { site } from '../data/site'
       ))}
     </nav>
 
-    <div class="flex items-center gap-3">
+    <div class="flex min-w-0 items-center gap-1.5 sm:gap-3">
       <button
         type="button"
         id="theme-toggle"
@@ -31,6 +32,7 @@ import { site } from '../data/site'
       <a href="/pricing" class="rounded-lg bg-ink-900 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-ink-800 dark:bg-white dark:text-ink-900 dark:hover:bg-ink-100">
         Start free
       </a>
+      <MobileMenu />
     </div>
   </div>
 </header>

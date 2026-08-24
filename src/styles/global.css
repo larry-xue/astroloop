@@ -58,7 +58,13 @@ body {
 
 ::selection { background: var(--color-signal-400); color: var(--color-ink-950); }
 
-.container-page { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+/* min-w-0 stops min-content propagation. `overflow-x: auto` scrolls its own
+   content but does NOT stop that content's intrinsic minimum width travelling
+   up the tree — a 720px table inside a scroller still widens every flex or grid
+   ancestor that has the default `min-width: auto`, and the page ends up wider
+   than the phone. That is what was pushing the document to 662px at a 390px
+   viewport and making the browser zoom the whole page out. */
+.container-page { @apply mx-auto w-full min-w-0 max-w-6xl px-5 sm:px-8; }
 .eyebrow { @apply font-mono text-xs uppercase tracking-[0.14em] text-ink-500 dark:text-ink-400; }
 
 /* ---------------------------------------------------------------------------

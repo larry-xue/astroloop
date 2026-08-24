@@ -1,0 +1,107 @@
+---
+import { Icon } from 'astro-icon/components'
+import { site } from '../data/site'
+
+/**
+ * The mobile drawer.
+ *
+ * A `<details>`: the open state, the keyboard behaviour and the
+ * no-JavaScript fallback all come from the element. The script adds the two
+ * things it cannot do — locking the body scroll while open, and closing on
+ * Escape or on a link tap.
+ *
+ * It renders only below the nav breakpoint. Above it the desktop nav is visible
+ * and this would be a second copy of every link in the accessibility tree.
+ */
+---
+
+<details class="mmenu">
+  <summary aria-label="Menu">
+    <Icon name="lucide:menu" class="i-open" aria-hidden="true" />
+    <Icon name="lucide:x" class="i-close" aria-hidden="true" />
+  </summary>
+
+  <div class="sheet">
+    <nav aria-label="Mobile">
+      <ul>
+        {[...site.nav, ...(site.footerNav ?? [])].map((n) => (
+          <li><a href={n.href}>{n.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</details>
+
+<style>
+  @reference "../styles/global.css";
+
+  .mmenu { position: relative; }
+  @media (min-width: 48rem) { .mmenu { display: none; } }
+
+  summary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    color: var(--color-ink-600);
+    cursor: pointer;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:focus-visible { outline: 2px solid var(--color-signal-600); outline-offset: 2px; }
+  :global(.dark) summary { color: var(--color-ink-300); }
+
+  .i-open, .i-close { width: 1.15rem; height: 1.15rem; }
+  .i-close { display: none; }
+  details[open] .i-open { display: none; }
+  details[open] .i-close { display: block; }
+
+  /* Anchored to the header, not the summary — a drawer that starts at the icon
+     leaves a ragged edge down the right of the screen. */
+  .sheet {
+    position: fixed;
+    inset: 4rem 0 auto 0;
+    max-height: calc(100dvh - 4rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-bottom: 1px solid var(--color-ink-100);
+    background: #fff;
+    padding: 0.5rem 1.25rem 1.5rem;
+  }
+  :global(.dark) .sheet { border-bottom-color: var(--color-ink-800); background: var(--color-ink-950); }
+
+  .sheet ul { margin: 0; padding: 0; list-style: none; }
+
+  .sheet a {
+    display: block;
+    /* 44px minimum. A 32px target in a list of six is a mis-tap waiting to
+       happen, and the mis-tap lands on the next link rather than on nothing. */
+    padding: 0.7rem 0;
+    min-height: 2.75rem;
+    font-weight: 600;
+    color: var(--color-ink-900);
+    text-decoration: none;
+  }
+  :global(.dark) .sheet a { color: #fff; }
+  .sheet li + li a { border-top: 1px solid var(--color-ink-100); }
+  :global(.dark) .sheet li + li a { border-top-color: var(--color-ink-800); }
+</style>
+
+<script>
+  const d = document.querySelector<HTMLDetailsElement>('details.mmenu')
+  if (d) {
+    const lock = () => { document.body.style.overflow = d.open ? 'hidden' : '' }
+    d.addEventListener('toggle', lock)
+    d.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { d.open = false; lock() }))
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && d.open) { d.open = false; lock(); d.querySelector('summary')?.focus() }
+    })
+    // Above the breakpoint the sheet is display:none but the body lock would
+    // survive a resize, leaving a page that cannot scroll.
+    matchMedia('(min-width: 48rem)').addEventListener('change', (e) => {
+      if (e.matches && d.open) { d.open = false; lock() }
+    })
+  }
+</script>
