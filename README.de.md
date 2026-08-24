@@ -54,6 +54,8 @@ eine ganze Website statt über eine einzelne Landingpage.
 
 **[Live-Demo](https://astroloop-pro.larryxue.dev)** — alle folgenden Abschnitte sind dort zu sehen.
 
+- **Sechs eingebaute KI-Skills** — `.claude/skills/` plus `AGENTS.md` und `DESIGN.md`,
+  damit eine mit Claude, Cursor oder Codex bearbeitete Seite noch nach der Seite aussieht
 - **29 Seiten, 29 Komponenten** — Dokumentation mit Seitenleiste, Evaluierungen,
   Changelog, Integrationen, Sicherheit, Rechtliches
 - **Interaktive Tool-Call-Timeline** — ein Durchlauf Schritt für Schritt,

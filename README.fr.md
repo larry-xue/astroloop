@@ -54,6 +54,8 @@ déployé sur un site entier plutôt que sur une seule landing page.
 
 **[Démo en ligne](https://astroloop-pro.larryxue.dev)** — toutes les sections ci-dessous y figurent.
 
+- **Six skills IA intégrés** — `.claude/skills/` plus `AGENTS.md` et `DESIGN.md`,
+  pour qu'une page modifiée avec Claude, Cursor ou Codex ressemble encore au site
 - **29 pages, 29 composants** — documentation avec barre latérale, évaluations,
   changelog, intégrations, sécurité, mentions légales
 - **Chronologie interactive des appels d'outils** — une exécution rejouée étape

@@ -54,6 +54,8 @@ across a whole site instead of a landing page.
 
 **[Live demo](https://astroloop-pro.larryxue.dev)** — the sections below are all on it.
 
+- **Six AI skills built in** — `.claude/skills/` plus `AGENTS.md` and `DESIGN.md`,
+  so a page edited with Claude, Cursor or Codex comes back looking like the site
 - **29 pages, 29 components** — docs with a sidebar, evals, changelog,
   integrations, security, legal
 - **An interactive tool-call timeline** — one run replayed step by step,

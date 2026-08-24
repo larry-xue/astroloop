@@ -54,6 +54,8 @@ npm run build   # ./dist/
 
 **[ライブデモ](https://astroloop-pro.larryxue.dev)** — 以下のセクションはすべてデモ上にあります。
 
+- **AI スキルを 6 つ内蔵** — `.claude/skills/` と `AGENTS.md`・`DESIGN.md`。
+  Claude / Cursor / Codex で編集してもサイトの見た目が保たれます
 - **29 ページ、29 コンポーネント** — サイドバー付きドキュメント、評価、
   変更履歴、連携、セキュリティ、法務
 - **インタラクティブなツール呼び出しタイムライン** — 1 回の実行をステップごとに
