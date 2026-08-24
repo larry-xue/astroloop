@@ -8,10 +8,6 @@ An Astro landing page template for **AI agent products** — built around the qu
 
 ![The Astroloop home page](./.github/assets/hero.png)
 
-![The agent loop diagram](./.github/assets/agent-loop.png)
-
-![The permission matrix](./.github/assets/permissions.png)
-
 ## Features
 
 - **The agent loop** — goal, plan, act, tool call, observe, and the gate that waits for a person. Pure SVG.

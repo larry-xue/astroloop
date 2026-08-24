@@ -8,10 +8,6 @@ Un template de landing Astro pour les **produits à base d'agents IA**, construi
 
 ![La page d'accueil d'Astroloop](./.github/assets/hero.png)
 
-![Le schéma de la boucle de l'agent](./.github/assets/agent-loop.png)
-
-![La matrice des permissions](./.github/assets/permissions.png)
-
 ## Fonctionnalités
 
 - **La boucle de l'agent** — objectif, plan, action, appel d'outil, observation, et la porte qui attend une personne. SVG pur.

@@ -8,10 +8,6 @@ Ein Astro-Landingpage-Template für **KI-Agentenprodukte** — gebaut um die Fra
 
 ![Die Astroloop-Startseite](./.github/assets/hero.png)
 
-![Das Diagramm der Agentenschleife](./.github/assets/agent-loop.png)
-
-![Die Berechtigungsmatrix](./.github/assets/permissions.png)
-
 ## Funktionen
 
 - **Die Agentenschleife** — Ziel, Plan, Aktion, Werkzeugaufruf, Beobachtung, und das Tor, das auf einen Menschen wartet. Reines SVG.

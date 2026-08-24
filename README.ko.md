@@ -8,10 +8,6 @@
 
 ![Astroloop 홈페이지](./.github/assets/hero.png)
 
-![에이전트 루프 다이어그램](./.github/assets/agent-loop.png)
-
-![권한 매트릭스](./.github/assets/permissions.png)
-
 ## 기능
 
 - **에이전트 루프 다이어그램** — 목표·계획·실행·도구 호출·관찰, 그리고 사람을 기다리는 게이트. 순수 SVG.

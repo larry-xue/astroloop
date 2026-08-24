@@ -8,10 +8,6 @@
 
 ![Astroloop のホームページ](./.github/assets/hero.png)
 
-![エージェントループの図](./.github/assets/agent-loop.png)
-
-![権限マトリクス](./.github/assets/permissions.png)
-
 ## 機能
 
 - **エージェントループ図** — 目標・計画・実行・ツール呼び出し・観察、そして人を待つゲート。純粋な SVG。

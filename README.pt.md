@@ -8,10 +8,6 @@ Um template de landing em Astro para **produtos de agentes de IA**, construído 
 
 ![A página inicial do Astroloop](./.github/assets/hero.png)
 
-![O diagrama do ciclo do agente](./.github/assets/agent-loop.png)
-
-![A matriz de permissões](./.github/assets/permissions.png)
-
 ## Recursos
 
 - **O ciclo do agente** — objetivo, plano, ação, chamada de ferramenta, observação, e o portão que espera por uma pessoa. SVG puro.

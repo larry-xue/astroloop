@@ -8,10 +8,6 @@
 
 ![Astroloop 首页](./.github/assets/hero.png)
 
-![Agent 循环图](./.github/assets/agent-loop.png)
-
-![权限矩阵](./.github/assets/permissions.png)
-
 ## 功能
 
 - **Agent 循环图** —— 目标、规划、执行、调用工具、观察，以及停下来等人的闸门。纯 SVG。
