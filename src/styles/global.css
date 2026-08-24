@@ -64,6 +64,24 @@ body {
    ancestor that has the default `min-width: auto`, and the page ends up wider
    than the phone. That is what was pushing the document to 662px at a 390px
    viewport and making the browser zoom the whole page out. */
+
+/* A horizontal scroller whose content cannot widen the page.
+ *
+ * `overflow-x: auto` scrolls its own content but does not stop that content's
+ * intrinsic minimum width travelling up the tree. On a phone that is not a
+ * cosmetic problem: Chrome shrink-to-fits the whole document to the widest
+ * declared box, so the layout stays at 390 while the visual viewport opens to
+ * 580 and the site renders in the left two-thirds of the screen with a blank
+ * strip beside it. Measured on the Astroloop Pro home page before this rule.
+ *
+ * `contain: layout inline-size` is what stops it — the element's inline size is
+ * computed without consulting its contents. `contain: inline-size` alone is not
+ * enough; the layout keyword is the half that does the work here. */
+.scroll-x {
+  overflow-x: auto;
+  contain: layout inline-size;
+}
+
 .container-page { @apply mx-auto w-full min-w-0 max-w-6xl px-5 sm:px-8; }
 .eyebrow { @apply font-mono text-xs uppercase tracking-[0.14em] text-ink-500 dark:text-ink-400; }
 
