@@ -6,13 +6,19 @@
 
 **[Live demo](https://astroloop.larryxue.dev)** · MIT · Astro 7 · Tailwind 4
 
+![Astroloop 首页](./.github/assets/hero.png)
+
 ## 🔁 Agent 循环图
 
 画的是真实的循环——目标、规划、执行、调用工具、观察——带着那条**绕回去**的箭头，以及在产出之前**停下来等人**的闸门。纯 SVG，零依赖。
 
+![Agent 循环图](./.github/assets/agent-loop.png)
+
 ## 🔐 权限矩阵
 
 逐个工具列出：读什么、写什么、**必须先问什么**、是否留痕。数据来自 YAML 文件。`writes` 和 `approval` 是刻意分开的两列——买家怕的不是 agent 能写，是它**不打招呼就写**。空格子也是有意的：一整列绿勾读起来像营销，空白读起来才像真实的权限审计。
+
+![权限矩阵](./.github/assets/permissions.png)
 
 ## 功能
 
