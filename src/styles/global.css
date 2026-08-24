@@ -88,30 +88,30 @@ body {
  *
  * The CSS at-rule, not Astro's <ClientRouter />. The router ships a few KB of
  * JavaScript and this template claims zero — a claim printed on the card in
- * every directory listing, so it has to stay true.
+ * every directory listing, so it has to stay true. Astro's own site dropped
+ * the router for this at-rule in 2024 for the same reason.
  *
- * Two things make this read as a transition rather than a flicker:
+ * Timing and curve are taken from Astro's own zero-JS reference build: 180ms
+ * on cubic-bezier(0.76, 0, 0.24, 1), a symmetric ease-in-out, and a pure
+ * opacity fade. Adding a translate to a page transition sounds like polish and
+ * reads as a lurch, because the scroll position is already changing underneath
+ * it. Nobody who does this well adds one.
  *
- *   1. The chrome is named, so the browser holds the header, the footer and
- *      the badge in place instead of cross-fading the entire page. Only the
- *      content between them moves, which is what actually changed.
- *   2. The incoming page starts after the outgoing one has finished. Overlap
- *      leaves both snapshots semi-transparent for a frame, the background
- *      shows through, and the eye reads that as a flash.
+ * Both directions run at once and for the same length. Delaying the incoming
+ * page to avoid overlap does not remove the overlap, it replaces it with a
+ * hole where almost nothing is on screen, and that is what reads as a flash.
  * ------------------------------------------------------------------------ */
 
-@view-transition { navigation: auto; }
+@view-transition { navigation: auto; /* enabled */ }
 
 header { view-transition-name: site-header; }
 footer { view-transition-name: site-footer; }
 main { view-transition-name: page-main; }
 .lx-demo-badge { view-transition-name: demo-badge; }
 
-/* The `group` pseudo is the one that actually moves an element between its old
- * and new position, and it runs a 250ms linear animation by default. Freezing
- * only `old` and `new` leaves that in place, which is why the header appeared
- * to drift and why the whole thing felt mechanical — linear easing on five
- * simultaneous groups. */
+/* The `group` pseudo is what moves an element between its old and new
+ * position, and it runs 250ms linear by default. Freezing only `old` and `new`
+ * leaves that running, which is why the chrome appeared to drift. */
 ::view-transition-group(root),
 ::view-transition-group(site-header),
 ::view-transition-group(site-footer),
@@ -120,41 +120,34 @@ main { view-transition-name: page-main; }
 ::view-transition-old(root),
 ::view-transition-new(root) { animation: none; }
 
-/* Chrome does not move. */
 ::view-transition-old(site-header), ::view-transition-new(site-header),
 ::view-transition-old(site-footer), ::view-transition-new(site-footer),
 ::view-transition-old(demo-badge), ::view-transition-new(demo-badge) { animation: none; }
 
-/* The content group morphs on the same curve as its contents, not on the
- * browser's linear default. */
-::view-transition-group(page-main) {
-  animation-duration: 260ms;
-  animation-timing-function: cubic-bezier(0.33, 0, 0.67, 1);
-}
-
 @media (prefers-reduced-motion: no-preference) {
-  /* A true cross-fade: both run at once, for the same length, with no delay.
-   *
-   * The previous version delayed the incoming page so the two would not
-   * overlap. That did not remove the overlap, it replaced it with a gap —
-   * for about 40ms the outgoing page was down to a third of its opacity and
-   * the incoming one had not started, so the screen was 97% background. That
-   * is the flash. Two half-opaque snapshots of the same site over the same
-   * background read as a blend; an empty frame reads as a blink. */
-  ::view-transition-old(page-main) {
-    animation: lx-page-out 260ms cubic-bezier(0.33, 0, 0.67, 1) both;
-  }
+  ::view-transition-group(page-main),
+  ::view-transition-old(page-main),
   ::view-transition-new(page-main) {
-    animation: lx-page-in 260ms cubic-bezier(0.33, 0, 0.67, 1) both;
+    animation-duration: 180ms;
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+    animation-fill-mode: both;
   }
+  ::view-transition-old(page-main) { animation-name: lx-fade-out; }
+  ::view-transition-new(page-main) { animation-name: lx-fade-in; }
 
-  /* No transform on the way out: the scroll position already resets between
-   * pages, and a second movement competing with that reads as a lurch. */
-  @keyframes lx-page-out {
-    to { opacity: 0; }
+  @keyframes lx-fade-out { to { opacity: 0; } }
+  @keyframes lx-fade-in { from { opacity: 0; } }
+
+  /* Shared elements. A post title carries its own name from the index into the
+   * article, so the browser morphs the one element instead of cross-fading two
+   * pages. This is the part that makes native transitions feel like an app;
+   * the page fade on its own never does. */
+  [data-vt-post] {
+    view-transition-class: post-title;
   }
-  @keyframes lx-page-in {
-    from { opacity: 0; transform: translateY(8px); }
+  ::view-transition-group(.post-title) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
   }
 }
 
