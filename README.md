@@ -37,7 +37,9 @@ rather than decorative.
 - **Zero client-side JavaScript** — no animation library, no smooth-scroll
   hijacking, and no view-transition router. Motion is CSS scroll-driven
   animation and the native `@view-transition` rule; both degrade to static.
-- Self-hosted variable fonts, preloaded. No third-party font origin.
+- Fonts via Astro's built-in pipeline: downloaded at build time, served from
+  this origin, preloaded, and with fallback metrics so the swap does not shift
+  the layout. No third-party font origin and no font dependency to update.
 - Light and dark, chosen before first paint so there is no flash
 - Content collections for the blog, RSS, sitemap, canonical URLs, OG tags
 - Usage-based pricing page, because agent products do not sell seats
