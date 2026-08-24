@@ -8,20 +8,14 @@ Ein Astro-Landingpage-Template für **KI-Agentenprodukte** — gebaut um die Fra
 
 ![Die Astroloop-Startseite](./.github/assets/hero.png)
 
-## 🔁 Die Agentenschleife
-
-Ein Diagramm der tatsächlichen Schleife — Ziel, Plan, Aktion, Werkzeugaufruf, Beobachtung — mit dem Pfeil, der **zurückführt**, und dem Tor, das vor dem Ergebnis **anhält und auf einen Menschen wartet**. Reines SVG, keine Abhängigkeiten.
-
 ![Das Diagramm der Agentenschleife](./.github/assets/agent-loop.png)
-
-## 🔐 Die Berechtigungsmatrix
-
-Pro Werkzeug: was gelesen, was geschrieben, **wofür erst gefragt** und was protokolliert wird. Gespeist aus einer YAML-Datei. `writes` und `approval` sind absichtlich getrennte Spalten: Niemand fürchtet, dass ein Agent schreiben kann, sondern dass er *ohne zu fragen* schreibt. Und die leeren Zellen sind der Punkt — eine Spalte grüner Haken liest sich wie Werbung, Lücken lesen sich wie eine echte Prüfung.
 
 ![Die Berechtigungsmatrix](./.github/assets/permissions.png)
 
 ## Funktionen
 
+- **Die Agentenschleife** — Ziel, Plan, Aktion, Werkzeugaufruf, Beobachtung, und das Tor, das auf einen Menschen wartet. Reines SVG.
+- **Berechtigungsmatrix pro Werkzeug** — Lesen, Schreiben, Freigabe und Audit als vier eigene Spalten, aus einer YAML-Datei.
 - **13 Seiten** — Start, Preise, Blog, Kontakt, Über uns, Rechtliches, 404
 - **Astro 7** und **Tailwind CSS 4**
 - Native CSS-View-Transitions, inklusive gemeinsamer Elemente von der Blogübersicht in den Beitrag — ohne Router

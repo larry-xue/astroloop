@@ -8,20 +8,14 @@ An Astro landing page template for **AI agent products** — built around the qu
 
 ![The Astroloop home page](./.github/assets/hero.png)
 
-## 🔁 The agent loop
-
-A diagram of the actual loop — goal, plan, act, tool call, observe — with the arrow that goes **back**, and the gate that **stops and waits for a person** before the result. Pure SVG, no dependencies.
-
 ![The agent loop diagram](./.github/assets/agent-loop.png)
-
-## 🔐 The permission matrix
-
-Per tool: what it reads, what it writes, **what it has to ask about first**, and whether it is audited. Driven from a YAML file. `writes` and `approval` stay separate columns on purpose — buyers are not afraid an agent can write, they are afraid it can write *without asking*. And the empty cells are the point: a column of green ticks reads as marketing, blanks read as a real audit.
 
 ![The permission matrix](./.github/assets/permissions.png)
 
 ## Features
 
+- **The agent loop** — goal, plan, act, tool call, observe, and the gate that waits for a person. Pure SVG.
+- **A per-tool permission matrix** — reads, writes, approval and audit as four separate columns, driven from YAML.
 - **13 pages** — home, pricing, blog, contact, about, legal, 404
 - **Astro 7** and **Tailwind CSS 4**
 - Native CSS view transitions, including shared elements from the blog index into the post — no router

@@ -8,20 +8,14 @@ Una plantilla Astro de landing para **productos de agentes de IA**, construida a
 
 ![La página de inicio de Astroloop](./.github/assets/hero.png)
 
-## 🔁 El bucle del agente
-
-Un diagrama del bucle real —objetivo, plan, acción, llamada a herramienta, observación— con la flecha que **vuelve atrás** y la puerta que **se detiene y espera a una persona** antes del resultado. SVG puro, sin dependencias.
-
 ![El diagrama del bucle del agente](./.github/assets/agent-loop.png)
-
-## 🔐 La matriz de permisos
-
-Por herramienta: qué lee, qué escribe, **qué tiene que consultar antes** y si queda auditado. Definido en un archivo YAML. `writes` y `approval` son columnas separadas a propósito: nadie teme que un agente pueda escribir, temen que escriba *sin preguntar*. Y las celdas vacías son el punto: una columna de marcas verdes se lee como marketing; los huecos, como una auditoría real.
 
 ![La matriz de permisos](./.github/assets/permissions.png)
 
 ## Características
 
+- **El bucle del agente** — objetivo, plan, acción, llamada a herramienta, observación, y la puerta que espera a una persona. SVG puro.
+- **Matriz de permisos por herramienta** — lectura, escritura, aprobación y auditoría en cuatro columnas separadas, desde un YAML.
 - **13 páginas** — inicio, precios, blog, contacto, sobre nosotros, legal, 404
 - **Astro 7** y **Tailwind CSS 4**
 - Transiciones de vista CSS nativas, con elementos compartidos del índice del blog al artículo, sin router
